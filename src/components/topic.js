@@ -4,7 +4,7 @@ class Topic {
         this.name = topic.name
     }
 
-    renderTopic() {
+    renderTopicName() {
         return `<li>${this.name}</li>`
     }
 }

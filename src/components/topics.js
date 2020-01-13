@@ -3,6 +3,11 @@ class Topics {
         this.topics = []
         this.adapter = new TopicsAdapter()
         this.fetchAndLoadTopics()
+        this.initListeners()
+    }
+
+    initListeners() {
+        this.topicsBox = document.getElementById( 'topics-container' )
     }
 
     fetchAndLoadTopics() {
@@ -16,8 +21,7 @@ class Topics {
     }
 
     renderTopics() {
-        const topicsBox = document.getElementById( 'topics-container' )
-        topicsBox
+        this.topicsBox.innerHTML = this.topics.map(topic => topic.renderTopicName()).join('')
     }
 }
 

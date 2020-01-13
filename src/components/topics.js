@@ -6,10 +6,6 @@ class Topics {
         this.initListeners()
     }
 
-    initListeners() {
-        this.topicsBox = document.getElementById( 'topics-container' )
-    }
-
     fetchAndLoadTopics() {
         this.adapter.getTopics()
         .then(topics => {
@@ -18,6 +14,11 @@ class Topics {
         .then( () => {
             this.renderTopics()
         })
+    }
+
+    initListeners() {
+        this.topicsBox = document.getElementById( 'topics-container' )
+        this.topicForm = document.getElementById( 'topic-form' )
     }
 
     renderTopics() {

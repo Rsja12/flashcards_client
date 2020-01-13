@@ -6,5 +6,6 @@ class TopicsAdapter {
     getTopics() {
         return fetch( this.baseURL ).then( res => res.json() )
     }
-
 }
+
+

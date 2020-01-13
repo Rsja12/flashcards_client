@@ -17,7 +17,7 @@ class Topics {
 
     renderTopics() {
         const topicsBox = document.getElementById( 'topics-container' )
-        topicsBox.innerHTML = 'testing'
+        topicsBox
     }
 }
 

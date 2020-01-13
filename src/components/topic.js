@@ -3,4 +3,8 @@ class Topic {
         this.id = topic.id
         this.name = topic.name
     }
+
+    renderTopic() {
+        return `<li>${this.name}</li>`
+    }
 }

@@ -19,7 +19,11 @@ class Topics {
     initListeners() {
         this.topicsBox = document.getElementById( 'topics-container' )
         this.topicForm = document.getElementById( 'topic-form' )
+        this.topicForm.addEventListener('submit', this.createTopic.bind(this))
+        this.topicName = document.getElementById( 'topic-name' )
     }
+
+    
 
     renderTopics() {
         this.topicsBox.innerHTML = this.topics.map(topic => topic.renderTopicName()).join('')

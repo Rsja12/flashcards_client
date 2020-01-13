@@ -6,8 +6,18 @@ class Topics {
     }
 
     fetchAndLoadTopics() {
-        this.adapter.getTopics().then( topics => {
-            console.table( topics )
+        this.adapter.getTopics()
+        .then( topics => {
+            topics.forEach( topic => this.topics.push( topic ) )
+        } )
+        .then( () => {
+            this.renderTopics()
         } )
     }
+
+    renderTopics() {
+        const topicsBox = document.getElementById( 'topics-container' )
+        topicsBox.innerHTML = 'testing'
+    }
 }
+

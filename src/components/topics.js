@@ -7,12 +7,12 @@ class Topics {
 
     fetchAndLoadTopics() {
         this.adapter.getTopics()
-        .then( topics => {
-            topics.forEach( topic => this.topics.push( new Topic( topic ) ) )
-        } )
+        .then(topics => {
+            topics.forEach(topic => this.topics.push(new Topic(topic)))
+        })
         .then( () => {
             this.renderTopics()
-        } )
+        })
     }
 
     renderTopics() {

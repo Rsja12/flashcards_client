@@ -1,5 +1,5 @@
 class Topic {
-    constructor( topic ) {
+    constructor(topic) {
         this.id = topic.id
         this.name = topic.name
     }

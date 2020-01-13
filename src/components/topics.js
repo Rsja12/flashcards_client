@@ -7,7 +7,7 @@ class Topics {
 
     fetchAndLoadTopics() {
         this.adapter.getTopics().then( topics => {
-            console.log( topics )
+            console.table( topics )
         } )
     }
 }

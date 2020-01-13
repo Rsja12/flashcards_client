@@ -30,11 +30,11 @@ class Topics {
     createTopic(e) {
         e.preventDefault()
         const name = this.topicName.value
-        
+
         this.adapter.create(name)
         .then(topic => {
             this.topics.push(new Topic(topic))
-            this.topic.value = ''
+            this.topicName.value = ''
             this.renderTopics()
         })
     }

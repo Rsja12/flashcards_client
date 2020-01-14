@@ -25,6 +25,7 @@ class Topics {
 
     initListeners() {
         this.topicForm.addEventListener('submit', this.createTopic.bind(this))
+        this.topicsBox.addEventListener('dblclick', this.editTopic.bind(this))
     }
 
     createTopic(e) {
@@ -37,6 +38,13 @@ class Topics {
             this.topicName.value = ''
             this.renderTopics()
         })
+    }
+
+    editTopic(e) {
+        const topic = e.target 
+        topic.contentEditable = true 
+        topic.focus()
+        topic.classList.add( 'edit' )
     }
 
     renderTopics() {

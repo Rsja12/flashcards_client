@@ -5,6 +5,6 @@ class Topic {
     }
 
     renderTopicName() {
-        return `<li data-id=${this.id}><i class="far fa-trash-alt"></i>${this.name}<i class="far fa-edit"></i></li>`
+        return `<li data-id=${this.id}>${this.name}</li>`
     }
 }

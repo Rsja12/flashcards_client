@@ -21,6 +21,21 @@ class TopicsAdapter {
         })
         .then(res => res.json())
     }
+
+    update(name, id) {
+        const topic = {
+            name: name,
+        }
+        return fetch(`${this.baseURL}/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({topic})
+        })
+        .then(res => res.json())
+    }
+
 }
 
 

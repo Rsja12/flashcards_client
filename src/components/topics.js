@@ -26,7 +26,7 @@ class Topics {
     initListeners() {
         this.topicForm.addEventListener('submit', this.createTopic.bind(this))
         this.topicsBox.addEventListener('dblclick', this.editTopic.bind(this))
-        this.topicsBox.addEventListener('blur', this.updateTopic.bind(this))
+        this.topicsBox.addEventListener('blur', this.updateTopic.bind(this), true)
     }
 
     createTopic(e) {
@@ -46,6 +46,15 @@ class Topics {
         topic.contentEditable = true 
         topic.focus()
         topic.classList.add( 'edit' )
+    }
+
+    updateTopic(e) {
+        const topic = e.target
+        topic.contentEditable = false 
+        topic.classList.remove( 'edit' )
+        const newName = topic.innerHTML
+        const id = topic.dataset.id 
+        this.adapter.update(newName, id)
     }
 
     renderTopics() {

@@ -5,6 +5,6 @@ class Topic {
     }
 
     renderTopicName() {
-        return `<li>${this.name}</li>`
+        return `<li data-id=${this.id}>${this.name}</li>`
     }
 }

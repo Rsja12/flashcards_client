@@ -38,6 +38,14 @@ ul li {
     border-bottom: 1px solid #ddd;
 }
 
+.fa-trash-alt {
+    float: left;
+}
+
+.fa-edit {
+    float: right;
+}
+
 
 /* Flashcard Layout */
 

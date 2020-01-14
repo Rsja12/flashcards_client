@@ -26,7 +26,7 @@ class Topics {
     initListeners() {
         this.topicForm.addEventListener('submit', this.createTopic.bind(this))
         this.topicsBox.addEventListener('dblclick', this.editTopic.bind(this))
-        this.topicsBox.addEventListener('blur', this.updateTopic.bind(this), true)
+        this.topicsBox.addEventListener('blur', this.updateTopic.bind(this), true) // look into `true`
     }
 
     createTopic(e) {

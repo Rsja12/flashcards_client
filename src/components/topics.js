@@ -20,24 +20,24 @@ class Topics {
     domElements() {
         this.topicsBox = document.getElementById( 'topics-container' )
         this.topicForm = document.getElementById( 'topic-form' )
-        this.topicName = document.getElementById( 'topic-name' )
+        this.topicNameField = document.getElementById( 'topic-name' )
     }
 
     initListeners() {
         this.topicForm.addEventListener('submit', this.createTopic.bind(this))
         this.topicsBox.addEventListener('dblclick', this.editTopic.bind(this))
         this.topicsBox.addEventListener('blur', this.updateTopic.bind(this), true) // look into `true`
-        this.topicName.addEventListener('click', this.renderCards())
+        this.topicsBox.addEventListener('click', this.renderCards.bind(this))
     }
 
     createTopic(e) {
         e.preventDefault()
-        const name = this.topicName.value
+        const name = this.topicNameField.value
 
         this.adapter.create(name)
         .then(topic => {
             this.topics.push(new Topic(topic))
-            this.topicName.value = ''
+            this.topicNameField.value = ''
             this.renderTopics()
         })
     }
@@ -62,8 +62,9 @@ class Topics {
         this.topicsBox.innerHTML = this.topics.map(topic => topic.renderTopicName()).join('')
     }
 
-    renderCards()  {
-        console.log( this )
+    renderCards(e)  {
+        const topic = e.target
+        console.log(topic.dataset.id)
     }
 
 }

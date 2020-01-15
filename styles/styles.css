@@ -7,10 +7,11 @@ h1 {
     text-align: center;
 }
 
-body {
-    height: 100%;
-    background-color: rgb(233, 233, 233);
+.warapper {
+    width: 100%;
 }
+
+
 
 /* Main Layout */
 
@@ -20,11 +21,11 @@ body {
     float: left;
     width: 30%;
 }
-
+/* 
 .topics-container {
     text-align: center;
     padding: 10%;
-}
+} */
 
 #topics-container {
     list-style: none;
@@ -38,28 +39,18 @@ ul li {
     border-bottom: 1px solid #ddd;
 }
 
-.fa-edit {
-    float: left;
-}
 
 /* Flashcard Layout */
 
 .flashcard-main {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(211, 211, 211);
     float: right;
     width: 70%
 }
 
-.flashcard-container {
-        float:left;
-        width:30%;
-        background-color: rgb(230, 230, 230);
-        color: #000080;
-        margin:15px;
-        text-align: center;
-}
 
 /* Editable class */
+
 .edit {
     border: 1px solid black;
     padding: 20px;

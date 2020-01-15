@@ -63,8 +63,8 @@ class Topics {
     }
 
     renderCards(e)  {
-        const topic = e.target
-        console.log(topic.dataset.id)
+        const topic = e.target.dataset.id
+        console.log(topic)
     }
 
 }

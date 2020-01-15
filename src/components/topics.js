@@ -25,8 +25,13 @@ class Topics {
 
     initListeners() {
         this.topicForm.addEventListener('submit', this.createTopic.bind(this))
-        this.topicsBox.addEventListener('dblclick', this.editTopic.bind(this))
+        // this.topicsBox.addEventListener('dblclick', this.editTopic.bind(this))
         this.topicsBox.addEventListener('blur', this.updateTopic.bind(this), true) // look into `true`
+        this.topicsBox.addEventListener('click', e => {
+            if (e.target.className === 'far fa-edit') {
+                this.editTopic()
+            }
+        })
     }
 
     createTopic(e) {
@@ -42,7 +47,7 @@ class Topics {
     }
 
     editTopic(e) {
-        const topic = e.target 
+        const topic = e.target //fix this ******************************************************************************************
         topic.contentEditable = true 
         topic.focus()
         topic.classList.add( 'edit' )
@@ -55,6 +60,10 @@ class Topics {
         const newName = topic.innerHTML
         const id = topic.dataset.id 
         this.adapter.update(newName, id)
+    }
+
+    deleteTopic(e) {
+        console.log('oh noooooooo')
     }
 
     renderTopics() {

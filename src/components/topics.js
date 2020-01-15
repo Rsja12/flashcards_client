@@ -27,7 +27,7 @@ class Topics {
         this.topicForm.addEventListener('submit', this.createTopic.bind(this))
         this.topicsBox.addEventListener('dblclick', this.editTopic.bind(this))
         this.topicsBox.addEventListener('blur', this.updateTopic.bind(this), true) // look into `true`
-        // this.topicName.addEventListener('click', this.renderCards())
+        this.topicName.addEventListener('click', this.renderCards())
     }
 
     createTopic(e) {
@@ -60,6 +60,10 @@ class Topics {
 
     renderTopics() {
         this.topicsBox.innerHTML = this.topics.map(topic => topic.renderTopicName()).join('')
+    }
+
+    renderCards()  {
+        console.log( this )
     }
 
 }

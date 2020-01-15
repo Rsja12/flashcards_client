@@ -7,4 +7,6 @@ class Topic {
     renderTopicName() {
         return `<li data-id=${this.id}></i>${this.name}</li>`
     }
+
+    
 }

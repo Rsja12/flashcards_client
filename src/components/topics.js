@@ -21,8 +21,9 @@ class Topics {
         this.topicsBox = document.getElementById( 'topics-container' )
         this.topicForm = document.getElementById( 'topic-form' )
         this.topicNameField = document.getElementById( 'topic-name' )
+        this.cardFormBox = document.getElementById( 'card-form-box' )
         this.cardsBox = document.getElementById( 'cards-container' )
-        this.cardForm = document.getElementById( 'card-form-box' )
+
     }
 
     initListeners() {
@@ -30,6 +31,7 @@ class Topics {
         this.topicsBox.addEventListener('dblclick', this.editTopic.bind(this))
         this.topicsBox.addEventListener('blur', this.updateTopic.bind(this), true) // look into `true`
         this.topicsBox.addEventListener('click', this.renderCards.bind(this))
+        // this.cardForm.addEventListener('submit', this.createCard.bind(this))
     }
 
     // TOPICS *********************************************************************
@@ -70,11 +72,11 @@ class Topics {
 
     renderCards(e)  {
         const id = e.target.dataset.id 
-        this.cardsBox.innerHTML = this.renderCardForm()
-        this.cardForm.innerHTML = this.topics.map(topic => topic.flashcards.map(card => {
+        this.cardFormBox.innerHTML = this.renderCardForm()
+        this.cardsBox.innerHTML = this.topics.map(topic => topic.flashcards.map(card => {
             if (id == card.topic_id) {
                 return `
-                    <li>${card.name}</li>
+                    <li><b>${card.name}:</b> ${card.description}</li>
                 `
             }
         }))   
@@ -92,7 +94,19 @@ class Topics {
         `
     }
 
-    
+    createCard(e) {
+        e.preventDefault()
+        const name = document.getElementById( 'card-name' ).value
+        debugger
+        const description = document.getElementById( 'card-description' )
+        const id = e.target.dataset.id 
+        console.log(name, description, id)
+
+        // this.adapter.createFlashCard(name, description, id)
+        // .then(card => {
+        //     console.log(card.name)
+        // })
+    }
         
 }
 

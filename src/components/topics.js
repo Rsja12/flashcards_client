@@ -32,6 +32,8 @@ class Topics {
         this.topicsBox.addEventListener('click', this.renderCards.bind(this))
     }
 
+    // TOPICS *********************************************************************
+
     createTopic(e) {
         e.preventDefault()
         const name = this.topicNameField.value
@@ -63,6 +65,8 @@ class Topics {
     renderTopics() {
         this.topicsBox.innerHTML = this.topics.map(topic => topic.renderTopicName()).join('')
     }
+
+    // FLASHCARDS ********************************************************************************
 
     renderCards(e)  {
         const id = e.target.dataset.id 

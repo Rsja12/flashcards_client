@@ -66,16 +66,28 @@ class Topics {
 
     renderCards(e)  {
         const id = e.target.dataset.id 
-        this.cardsBox.innerHTML = this.topics.map(topic => topic.flashcards.map(card => {
+        this.cardsBox.innerHTML = this.renderCardForm()
+        this.topics.map(topic => topic.flashcards.map(card => {
             if (parseInt(id) === card.topic_id) {
                 return `
                 <li>${card.name}</li>
                 `
-            } 
+            }
         })
     )}
+
+    renderCardForm() {
+        return `
+        <form id="card-form">
+            <label for="card-name">
+                Create a new flashcard!
+            </label><br>
+            Concept: <input type="text" id="card-name" required><br>
+            Description: <textarea type="text" id="card-description" required></textarea>
+            <input type="submit" value="Create">
+        </form>
+        `
+    }
         
-
-
 }
 

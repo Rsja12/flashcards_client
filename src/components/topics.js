@@ -22,13 +22,13 @@ class Topics {
         this.topicForm = document.getElementById( 'topic-form' )
         this.topicNameField = document.getElementById( 'topic-name' )
         this.cardsBox = document.getElementById( 'cards-container' )
+        this.cardForm = document.getElementById( 'flashcard-main' )
     }
 
     initListeners() {
         this.topicForm.addEventListener('submit', this.createTopic.bind(this))
         this.topicsBox.addEventListener('dblclick', this.editTopic.bind(this))
         this.topicsBox.addEventListener('blur', this.updateTopic.bind(this), true) // look into `true`
-        this.topicsBox.addEventListener('click', this.renderCards.bind(this))
         this.topicsBox.addEventListener('click', this.renderCards.bind(this))
     }
 
@@ -66,9 +66,9 @@ class Topics {
 
     renderCards(e)  {
         const id = e.target.dataset.id 
-        this.cardsBox.innerHTML = this.renderCardForm()
-        this.topics.map(topic => topic.flashcards.map(card => {
-            if (parseInt(id) === card.topic_id) {
+        this.cardForm.innerHTML = this.renderCardForm()
+        this.cardsBox.innerHTML = this.topics.map(topic => topic.flashcards.map(card => {
+            if (id == card.topic_id) {
                 return `
                 <li>${card.name}</li>
                 `
@@ -77,8 +77,7 @@ class Topics {
     )}
 
     renderCardForm() {
-        return `
-        <form id="card-form">
+        return `<form id="card-form">
             <label for="card-name">
                 Create a new flashcard!
             </label><br>

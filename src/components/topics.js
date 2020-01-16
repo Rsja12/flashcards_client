@@ -22,7 +22,7 @@ class Topics {
         this.topicForm = document.getElementById( 'topic-form' )
         this.topicNameField = document.getElementById( 'topic-name' )
         this.cardsBox = document.getElementById( 'cards-container' )
-        this.cardForm = document.getElementById( 'flashcard-main' )
+        this.cardForm = document.getElementById( 'card-form-box' )
     }
 
     initListeners() {
@@ -57,9 +57,9 @@ class Topics {
         const topic = e.target
         topic.contentEditable = false 
         topic.classList.remove( 'edit' )
-        const newName = topic.innerHTML
+        const name = topic.innerHTML
         const id = topic.dataset.id 
-        this.adapter.update(newName, id)
+        this.adapter.update(name, id)
     }
 
     renderTopics() {
@@ -70,15 +70,15 @@ class Topics {
 
     renderCards(e)  {
         const id = e.target.dataset.id 
-        this.cardForm.innerHTML = this.renderCardForm()
-        this.cardsBox.innerHTML = this.topics.map(topic => topic.flashcards.map(card => {
+        this.cardsBox.innerHTML = this.renderCardForm()
+        this.cardForm.innerHTML = this.topics.map(topic => topic.flashcards.map(card => {
             if (id == card.topic_id) {
                 return `
-                <li>${card.name}</li>
+                    <li>${card.name}</li>
                 `
             }
-        })
-    )}
+        }))   
+    }
 
     renderCardForm() {
         return `<form id="card-form">
@@ -91,6 +91,8 @@ class Topics {
         </form>
         `
     }
+
+    
         
 }
 

@@ -2,12 +2,11 @@ class Topic {
     constructor(topic) {
         this.id = topic.id
         this.name = topic.name
-        this.cards = topic.cards 
+        this.flashcards = topic.flashcards 
     }
 
     renderTopicName() {
-        return `<li data-id=${this.id}></i>${this.name}</li>`
+        return `<li data-id=${this.id}>${this.name}</li>`
     }
-
 
 }

@@ -23,7 +23,6 @@ class Topics {
         this.topicNameField = document.getElementById( 'topic-name' )
         this.cardFormBox = document.getElementById( 'card-form-box' )
         this.cardsBox = document.getElementById( 'cards-container' )
-
     }
 
     initListeners() {
@@ -76,10 +75,12 @@ class Topics {
         this.cardsBox.innerHTML = this.topics.map(topic => topic.flashcards.map(card => {
             if (id == card.topic_id) {
                 return `
-                    <li><b>${card.name}:</b> ${card.description}</li>
+                    <li><b>${card.name}:</b> ${card.description}<button class="edit-btn">Edit</button></li>
                 `
             }
         }))   
+        const editBtn = document.querySelector( '.edit-btn' )
+        editBtn.addEventListener('click', this.editCard.bind(this))
     }
 
     renderCardForm(id) {
@@ -106,6 +107,10 @@ class Topics {
 
     renderNewCard(card) {
         return this.cardsBox.innerHTML += `<li><b>${card.name}</b>${card.description}</li>`
+    }
+
+    editCard() {
+        console.log('test')
     }
     
   

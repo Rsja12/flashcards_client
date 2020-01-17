@@ -39,16 +39,16 @@ class TopicsAdapter {
     // FLASHCARDS
 
     createFlashCards(name, description, id) {
-        const card = {
+        const flashcard = {
             name: name,
             description: description
         }
-        return fetch(`${this.baseURL}/${id}`, {
+        return fetch(`${this.baseURL}/${id}/flashcards`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
             },
-            body: JSON.stringify({card})
+            body: JSON.stringify({flashcard})
         })
         .then(res => res.json())
     }

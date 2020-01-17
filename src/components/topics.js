@@ -31,7 +31,7 @@ class Topics {
         this.topicsBox.addEventListener('dblclick', this.editTopic.bind(this))
         this.topicsBox.addEventListener('blur', this.updateTopic.bind(this), true) // look into `true`
         this.topicsBox.addEventListener('click', this.renderCards.bind(this))
-        // this.cardForm.addEventListener('submit', this.createCard.bind(this))
+        this.cardFormBox.addEventListener('submit', this.createCard.bind(this))
     }
 
     // TOPICS *********************************************************************
@@ -70,9 +70,9 @@ class Topics {
 
     // FLASHCARDS ********************************************************************************
 
-    renderCards(e)  {
+    renderCards(e) {
         const id = e.target.dataset.id 
-        this.cardFormBox.innerHTML = this.renderCardForm()
+        this.cardFormBox.innerHTML = this.renderCardForm(id)
         this.cardsBox.innerHTML = this.topics.map(topic => topic.flashcards.map(card => {
             if (id == card.topic_id) {
                 return `
@@ -82,8 +82,8 @@ class Topics {
         }))   
     }
 
-    renderCardForm() {
-        return `<form id="card-form">
+    renderCardForm(id) {
+        return `<form data-topicId="${id}" id="card-form">
             <label for="card-name">
                 Create a new flashcard!
             </label><br>
@@ -96,16 +96,13 @@ class Topics {
 
     createCard(e) {
         e.preventDefault()
+        // how the fuck do I get the corresponding id 
+        const id = e.target.dataset.topicid
         const name = document.getElementById( 'card-name' ).value
-        debugger
-        const description = document.getElementById( 'card-description' )
-        const id = e.target.dataset.id 
-        console.log(name, description, id)
+        const description = document.getElementById( 'card-description' ).value
 
-        // this.adapter.createFlashCard(name, description, id)
-        // .then(card => {
-        //     console.log(card.name)
-        // })
+        this.adapter.createFlashCards(name, description, id)
+        .then(card => console.log(card))
     }
         
 }

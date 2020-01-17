@@ -101,8 +101,8 @@ class Topics {
         const description = document.getElementById( 'card-description' ).value
 
         this.adapter.createFlashCard(name, description, id)
-        .then(card => console.log(card))
+        .then(card => console.table(card))
     }
-        
+    
+  
 }
-

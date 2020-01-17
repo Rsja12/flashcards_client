@@ -38,7 +38,7 @@ class TopicsAdapter {
 
     // FLASHCARDS
 
-    createFlashCards(name, description, id) {
+    createFlashCard(name, description, id) {
         const flashcard = {
             name: name,
             description: description

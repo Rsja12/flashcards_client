@@ -96,12 +96,11 @@ class Topics {
 
     createCard(e) {
         e.preventDefault()
-        // how the fuck do I get the corresponding id 
         const id = e.target.dataset.topicid
         const name = document.getElementById( 'card-name' ).value
         const description = document.getElementById( 'card-description' ).value
 
-        this.adapter.createFlashCards(name, description, id)
+        this.adapter.createFlashCard(name, description, id)
         .then(card => console.log(card))
     }
         

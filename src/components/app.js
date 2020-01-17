@@ -1,6 +1,6 @@
 class App {
     constructor() {
         this.topics = new Topics()
-        this.flashcards = new Flashcard()
+        this.flashcards = new Flashcards()
     }
 }

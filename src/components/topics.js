@@ -75,12 +75,12 @@ class Topics {
         this.cardsBox.innerHTML = this.topics.map(topic => topic.flashcards.map(card => {
             if (id == card.topic_id) {
                 return `
-                    <li><b>${card.name}:</b> ${card.description}<button class="delete-btn">Delete</button></li>
+                    <li><b>${card.name}:</b> ${card.description}<button class="edit-btn">Edit</button></li>
                 `
             }
         }))   
-        const deleteBtn = document.querySelector( '.delete-btn' )
-        deleteBtn.addEventListener('click', this.deleteCard.bind(this))
+        const editBtn = document.querySelector( '.edit-btn' )
+        editBtn.addEventListener('click', this.editCard.bind(this))
     }
 
     renderCardForm(id) {
@@ -109,10 +109,10 @@ class Topics {
         return this.cardsBox.innerHTML += `<li><b>${card.name}</b>: ${card.description}</li>`
     }
     
-    deleteCard(e) {
+    editCard(e) {
         const btn = e.target 
-            if(btn.className === 'delete-btn') {
-                btn.parentElement.remove()
+            if(btn.className === 'edit-btn') {
+                btn.parentElement.contentEditable = true 
         }
     }
 }

@@ -76,27 +76,25 @@ class Topics {
             if (topicId == card.topic_id) {
                 return `
                     <li data-cardid="${card.id}" data-topicid="${topicId}"><b>${card.name}:</b> ${card.description}<button class="delete-btn">Delete</button></li>
-                `
+                 `
             }
         }))   
         const card = document.querySelector( '#cards-container' )
-        card.addEventListener('dblclick', this.handleClick.bind(this))
-        card.addEventListener('blur', this.updateCard.bind(this))
         card.addEventListener('click', this.handleDelete.bind(this))
     }
-
+    
     renderCardForm(topicId) {
         return `<form data-topicId="${topicId}" id="card-form">
-            <label for="card-name">
-                Create a new flashcard!
-            </label><br>
-            Concept: <input type="text" id="card-name" required><br>
-            Description: <textarea type="text" id="card-description" required></textarea>
-            <input type="submit" value="Create">
+        <label for="card-name">
+        Create a new flashcard!
+        </label><br>
+        Concept: <input type="text" id="card-name" required><br>
+        Description: <textarea type="text" id="card-description" required></textarea>
+        <input type="submit" value="Create">
         </form>
         `
     }
-
+    
     createCard(e) {
         e.preventDefault()
         const id = e.target.dataset.topicid
@@ -107,35 +105,12 @@ class Topics {
         document.getElementById( 'card-name' ).value = ''
         document.getElementById( 'card-description' ).value = ''
     }
-
+    
     renderNewCard(card) {
         return this.cardsBox.innerHTML += `<li data-cardid="${card.id}"><b>${card.name}</b>: ${card.description}<button class="delete-btn">Delete</button></li>`
     }
-
-    handleClick(e) {
-        if(e.target && e.target.nodeName == 'LI')  {
-            e.stopPropagation()
-            this.editCard(e)
-        }
-    }
     
-    editCard(e) {
-        const card = e.target 
-        card.contentEditable = true 
-        card.focus()
-    }
-
-    updateCard(e) {
-        const card = e.target
-        card.contentEditable = false
-        const values = card.innerText
-        let [name, description] = values.split(': ')
-        const topicId = e.target.dataset.topicid
-        const id = e.target.dataset.cardid
-        debugger
-        this.adapter.updateFlashCard(name, description, topicId, id)
-    }
-
+    
     handleDelete(e) {
         if(e.target && e.target.matches('button.delete-btn')) {
             e.stopPropagation()
@@ -148,6 +123,104 @@ class Topics {
         this.adapter.deleteFlashCard(id)
         e.target.parentElement.remove()
     }
-
+    
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Inside of renderCards()
+// card.addEventListener('dblclick', this.handleClick.bind(this))
+// card.addEventListener('blur', this.updateCard.bind(this))  Update not working 
+
+
+
+// handleClick(e) {
+//     if(e.target && e.target.nodeName == 'LI')  {
+//         e.stopPropagation()
+//         this.editCard(e)
+//     }
+// }
+
+// editCard(e) {
+//     const card = e.target 
+//     card.contentEditable = true 
+//     card.focus()
+// }
+
+// updateCard(e) {
+//     const card = e.target
+//     card.contentEditable = false
+//     const values = card.innerText
+//     let [name, description] = values.split(': ')
+//     const topicId = e.target.dataset.topicid
+//     const id = e.target.dataset.cardid
+//     debugger
+//     this.adapter.updateFlashCard(name, description, topicId, id)
+// }

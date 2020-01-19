@@ -68,6 +68,12 @@ class TopicsAdapter {
         .then(res => res.json())
     }
 
+    deleteFlashCard(id) {
+        return fetch(`http://localhost:3000/flashcards/${id}`, {
+            method: 'DELETE'
+        })
+    }
+
 }
 
 

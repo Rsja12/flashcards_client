@@ -75,17 +75,18 @@ class Topics {
         this.cardsBox.innerHTML = this.topics.map(topic => topic.flashcards.map(card => {
             if (topicId == card.topic_id) {
                 return `
-                    <li class="card" data-cardid="${card.id}" data-topicid="${topicId}"><b>${card.name}:</b> ${card.description}</li>
+                    <li data-cardid="${card.id}" data-topicid="${topicId}"><b>${card.name}:</b> ${card.description}<button class="delete-btn">Delete</button></li>
                 `
             }
         }))   
-        const card = document.querySelector( '.card' )
-        card.addEventListener('dblclick', this.editCard.bind(this))
+        const card = document.querySelector( '#cards-container' )
+        card.addEventListener('dblclick', this.handleClick.bind(this))
         card.addEventListener('blur', this.updateCard.bind(this))
+        card.addEventListener('click', this.handleDelete.bind(this))
     }
 
-    renderCardForm(id) {
-        return `<form data-topicId="${id}" id="card-form">
+    renderCardForm(topicId) {
+        return `<form data-topicId="${topicId}" id="card-form">
             <label for="card-name">
                 Create a new flashcard!
             </label><br>
@@ -107,15 +108,20 @@ class Topics {
     }
 
     renderNewCard(card) {
-        return this.cardsBox.innerHTML += `<li><b>${card.name}</b>: ${card.description}</li>`
+        return this.cardsBox.innerHTML += `<li data-cardid="${card.id}"><b>${card.name}</b>: ${card.description}<button class="delete-btn">Delete</button></li>`
+    }
+
+    handleClick(e) {
+        if(e.target && e.target.nodeName == 'LI')  {
+            e.stopPropagation()
+            this.editCard(e)
+        }
     }
     
     editCard(e) {
         const card = e.target 
-            if(card.className === 'card') {
-                card.contentEditable = true 
-                card.focus()
-        }
+        card.contentEditable = true 
+        card.focus()
     }
 
     updateCard(e) {
@@ -125,6 +131,22 @@ class Topics {
         let [name, description] = values.split(': ')
         const topicId = e.target.dataset.topicid
         const id = e.target.dataset.cardid
+        debugger
         this.adapter.updateFlashCard(name, description, topicId, id)
     }
+
+    handleDelete(e) {
+        if(e.target && e.target.matches('button.delete-btn')) {
+            e.stopPropagation()
+            this.deleteCard(e)
+        }
+    }
+    
+    deleteCard(e) {
+        const id = e.target.parentElement.dataset.cardid
+        this.adapter.deleteFlashCard(id)
+        e.target.parentElement.remove()
+    }
+
 }
+

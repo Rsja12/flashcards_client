@@ -53,6 +53,21 @@ class TopicsAdapter {
         .then(res => res.json())
     }
 
+    updateFlashCard(name, description, topicId, id) {
+        const flashcard = {
+            name: name,
+            description: description,
+        }
+        return fetch(`${this.baseURL}/${topicId}/flashcards/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({flashcard})
+        })
+        .then(res => res.json())
+    }
+
 }
 
 

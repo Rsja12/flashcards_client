@@ -70,17 +70,18 @@ class Topics {
     // FLASHCARDS ********************************************************************************
 
     renderCards(e) {
-        const id = e.target.dataset.id 
-        this.cardFormBox.innerHTML = this.renderCardForm(id)
+        const topicId = e.target.dataset.id 
+        this.cardFormBox.innerHTML = this.renderCardForm(topicId)
         this.cardsBox.innerHTML = this.topics.map(topic => topic.flashcards.map(card => {
-            if (id == card.topic_id) {
+            if (topicId == card.topic_id) {
                 return `
-                    <li><b>${card.name}:</b> ${card.description}<button class="edit-btn">Edit</button></li>
+                    <li class="card" data-cardid="${card.id}" data-topicid="${topicId}"><b>${card.name}:</b> ${card.description}</li>
                 `
             }
         }))   
-        const editBtn = document.querySelector( '.edit-btn' )
-        editBtn.addEventListener('click', this.editCard.bind(this))
+        const card = document.querySelector( '.card' )
+        card.addEventListener('dblclick', this.editCard.bind(this))
+        card.addEventListener('blur', this.updateCard.bind(this))
     }
 
     renderCardForm(id) {
@@ -110,9 +111,20 @@ class Topics {
     }
     
     editCard(e) {
-        const btn = e.target 
-            if(btn.className === 'edit-btn') {
-                btn.parentElement.contentEditable = true 
+        const card = e.target 
+            if(card.className === 'card') {
+                card.contentEditable = true 
+                card.focus()
         }
+    }
+
+    updateCard(e) {
+        const card = e.target
+        card.contentEditable = false
+        const values = card.innerText
+        let [name, description] = values.split(': ')
+        const topicId = e.target.dataset.topicid
+        const id = e.target.dataset.cardid
+        this.adapter.updateFlashCard(name, description, topicId, id)
     }
 }

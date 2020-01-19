@@ -102,9 +102,10 @@ class Topics {
         const id = e.target.dataset.topicid
         const name = document.getElementById( 'card-name' ).value
         const description = document.getElementById( 'card-description' ).value
-
         this.adapter.createFlashCard(name, description, id)
-        .then(card => this.renderNewCard(card))
+        .then(card => this.renderNewCard(card))  
+        document.getElementById( 'card-name' ).value = ''
+        document.getElementById( 'card-description' ).value = ''
     }
 
     renderNewCard(card) {

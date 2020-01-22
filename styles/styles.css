@@ -1,57 +1,136 @@
-/* * {
-    margin: 0;
-    padding: 0;
-} */
-
-h1 {
-    text-align: center;
-}
-
-.warapper {
-    width: 100%;
-}
-
-
-
-/* Main Layout */
-
-.topic-main {
-    background-color: #333;
-    color: bisque;
-    float: left;
-    width: 30%;
-}
-/* 
-.topics-container {
-    text-align: center;
-    padding: 10%;
-} */
-
-#topics-container {
-    list-style: none;
-    padding: 0;
-    border-top: 1px solid #ddd;
-}
-
-ul li {
-    text-align: center;
-    padding: 8px 16px;
-    border-bottom: 1px solid #ddd;
-}
-
-
-/* Flashcard Layout */
-
-.flashcard-main {
-    background-color: rgb(211, 211, 211);
-    float: right;
-    width: 70%
-}
-
-
 /* Editable class */
-
 .edit {
     border: 1px solid black;
     padding: 20px;
 }
+
+body {
+    margin: 0;
+    font-family: 'Nixie One';
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.parent {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* LEFT ************************************************************************************************************* */
+
+.left {
+    flex: 20;
+    background: rgb(32, 32, 32);
+}
+
+/* FORM */
+
+#topic-form{
+    /* border:1px solid rgb(3, 0, 0); */
+    width:50%; 
+    margin-top: 10%;
+    margin-left: 25%;
+    text-align:center;
+}
+
+#topic-name {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.label {
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+#topic-name {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* TOPICS */
+
+.topic-list {
+    color: white;
+    list-style: none;
+    font-size: 30px;
+    font-weight: 200;
+    margin-top: 25%;
+    margin-left: 15%;
+    position: relative;
+    text-decoration: none;
+}
+
+.topic-list:hover {
+    border-bottom: 5px solid rgb(255, 255, 255);
+    transition: .5s ease, .5s ease;
+}
+
+
+
+/*  RIGHT SIDE******************************************************************************* */
+
+.right {
+    flex: 80;
+    flex-direction: column;
+    display: flex;
+    background-color: rgb(243, 243, 243);
+}
+
+.right .top {
+    flex: 20;
+}
+
+.right .bottom {
+    margin: 0;
+    flex: 80;
+}
+
+/* CARD FORM */
+
+#card-form-box {
+    text-align: center;
+}
+
+#card-form {
+    position: absolute;
+    left: 50%;
+}
+
+#card-name {
+    margin-top: 10%;
+    margin-bottom: 5%;
+    width: 100%;
+    border-radius: 8px; 
+}
+
+#card-description {
+    margin-bottom: 5%;
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* FLASHCARDS */
+
+/* .bottom {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.card-list {
+    background-color: white;
+    border: 2px solid #e7e7e7;
+    border-radius: 4px;
+    padding: .5rem;
+    padding: 2px 16px;
+} */

@@ -22,7 +22,7 @@ class Topics {
         this.topicForm = document.getElementById( 'topic-form' )
         this.topicNameField = document.getElementById( 'topic-name' )
         this.cardFormBox = document.getElementById( 'card-form-box' )
-        this.cardsBox = document.getElementById( 'cards-container' )
+        this.cardsBox = document.querySelector( '.bottom' )
     }
 
     initListeners() {
@@ -72,56 +72,69 @@ class Topics {
     renderCards(e) {
         const topicId = e.target.dataset.id 
         this.cardFormBox.innerHTML = this.renderCardForm(topicId)
-        this.cardsBox.innerHTML = this.topics.map(topic => topic.flashcards.map(card => {
+        const cards = this.topics.map(topic => topic.flashcards.map(card => {
             if (topicId == card.topic_id) {
-                return `
-                    <li data-cardid="${card.id}" data-topicid="${topicId}"><b>${card.name}:</b> ${card.description}<button class="delete-btn">Delete</button></li>
-                 `
+                return `<div class="card-list" data-cardid="${card.id}" data-topicid="${topicId}"><b>${card.name}:</b> ${card.description}<button class="delete-btn">Delete</button></div>`
             }
-        }))   
-        const card = document.querySelector( '#cards-container' )
+        }))
+        this.cardsBox.innerHTML = cards.join(' ')
+        const card = document.querySelector( '.bottom' )
         card.addEventListener('click', this.handleDelete.bind(this))
     }
     
     renderCardForm(topicId) {
         return `<form data-topicId="${topicId}" id="card-form">
-        <label for="card-name">
-        Create a new flashcard!
-        </label><br>
-        Concept: <input type="text" id="card-name" required><br>
-        Description: <textarea type="text" id="card-description" required></textarea>
+        <input type="text" id="card-name" placeholder="Term" required>
+        <input type="text" id="card-description" placeholder="Description" required></input>
         <input type="submit" value="Create">
         </form>
         `
     }
     
-    createCard(e) {
+    createCard = (e) => {
         e.preventDefault()
-        const id = e.target.dataset.topicid
+        this.topicId = parseInt(e.target.dataset.topicid)
         const name = document.getElementById( 'card-name' ).value
         const description = document.getElementById( 'card-description' ).value
-        this.adapter.createFlashCard(name, description, id)
-        .then(card => this.renderNewCard(card))  
+        this.adapter.createFlashCard(name, description, this.topicId)
+        .then(card => {
+            this.topics.find((topic) => topic.id === this.topicId).flashcards.push(card)
+            this.renderNewCard(card)
+        })
         document.getElementById( 'card-name' ).value = ''
         document.getElementById( 'card-description' ).value = ''
     }
     
     renderNewCard(card) {
-        return this.cardsBox.innerHTML += `<li data-cardid="${card.id}"><b>${card.name}</b>: ${card.description}<button class="delete-btn">Delete</button></li>`
+        return this.cardsBox.innerHTML += `<div class="card-list" data-cardid="${card.id}" data-topicid="${card.topic_id}"><b>${card.name}:</b> ${card.description}<button class="delete-btn">Delete</button></div>`
     }
     
     
     handleDelete(e) {
         if(e.target && e.target.matches('button.delete-btn')) {
-            e.stopPropagation()
             this.deleteCard(e)
+            e.stopPropagation()
         }
     }
     
     deleteCard(e) {
-        const id = e.target.parentElement.dataset.cardid
-        this.adapter.deleteFlashCard(id)
+        this.cardId = parseInt(e.target.parentElement.dataset.cardid)
+        this.adapter.deleteFlashCard(this.cardId)
+        const topicId = parseInt(e.target.parentElement.dataset.topicid)
+        const topic = this.topics.find((topic) => topic.id === topicId)
         e.target.parentElement.remove()
+        topic.flashcards = topic.flashcards.filter((card) => card.id !== this.cardId)
+        // debugger
+
+        // .then(res => {
+        //     if (res.status < 200 || res.status > 299) {
+        //         this.topicId = parseInt(e.target.parentElement.dataset.topicid ,10)    
+        //         const topic = this.topics.find(topic=> {          
+        //             return topic.id === this.topicId
+        //         })
+        //         topic.flashcards = topic.flashcards.filter( (card) => card.id !== this.cardId )
+        //     }
+        // }).catch(err => console.log(err))
     }
     
 }

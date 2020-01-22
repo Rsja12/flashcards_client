@@ -4,31 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- <link rel="stylesheet" href="styles/styles.css"> -->
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
     <title>Flashcards</title>
 </head>
 <body>
-    <h1>STUDY TIME</h1>
-        <div class="topic-main">
+    <div class="parent">
+        <div class="left">
             <form id="topic-form">
-                <label for="topic-name">
-                    Create new topic!
-                </label><br>
+                <label for="topic-name" class="label">Make a topic</label>
                 <input type="text" id="topic-name" required>
                 <input type="submit" value="Create">
             </form>
             <ul id="topics-container">
                 
-            </ul>
+            </ul> 
         </div>
-        <div id="flashcard-main">
-            <div id="card-form-box">
+        <div class="right">
+            <div class="top" id="card-form-box">
                 
             </div>
-            <ul id="cards-container">
-            
-            </ul>
+            <div class="bottom">
+                <!-- MAKE SURE THIS STILL WORKS WITH JS. ADDED UL'S PARENT DIV -->
+                <!-- <ul id="cards-container">    
+
+                </ul> -->
+            </div>
         </div>
+    </div>
+      
    
     <script src="src/components/topics.js"></script>
     <script src="src/components/topic.js"></script>

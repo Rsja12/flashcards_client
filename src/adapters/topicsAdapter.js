@@ -53,27 +53,56 @@ class TopicsAdapter {
         .then(res => res.json())
     }
 
-    updateFlashCard(name, description, topicId, id) {
-        const flashcard = {
-            name: name,
-            description: description,
-        }
-        return fetch(`${this.baseURL}/${topicId}/flashcards/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify({flashcard})
-        })
-        .then(res => res.json())
-    }
 
     deleteFlashCard(id) {
         return fetch(`http://localhost:3000/flashcards/${id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json'
+            }
         })
+        
     }
 
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// updateFlashCard(name, description, topicId, id) {
+//     const flashcard = {
+//         name: name,
+//         description: description,
+//     }
+//     return fetch(`${this.baseURL}/${topicId}/flashcards/${id}`, {
+//         method: 'PATCH',
+//         headers: {
+//             'content-type': 'application/json',
+//         },
+//         body: JSON.stringify({flashcard})
+//     })
+//     .then(res => res.json())
+// }

@@ -124,17 +124,6 @@ class Topics {
         const topic = this.topics.find((topic) => topic.id === topicId)
         e.target.parentElement.remove()
         topic.flashcards = topic.flashcards.filter((card) => card.id !== this.cardId)
-        // debugger
-
-        // .then(res => {
-        //     if (res.status < 200 || res.status > 299) {
-        //         this.topicId = parseInt(e.target.parentElement.dataset.topicid ,10)    
-        //         const topic = this.topics.find(topic=> {          
-        //             return topic.id === this.topicId
-        //         })
-        //         topic.flashcards = topic.flashcards.filter( (card) => card.id !== this.cardId )
-        //     }
-        // }).catch(err => console.log(err))
     }
     
 }

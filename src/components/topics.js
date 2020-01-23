@@ -69,12 +69,13 @@ class Topics {
 
     // FLASHCARDS ********************************************************************************
 
-    renderCards(e) {
+    renderCards(e) {        
         const topicId = e.target.dataset.id 
         this.cardFormBox.innerHTML = this.renderCardForm(topicId)
-        const cards = this.topics.map(topic => topic.flashcards.map(card => {
+        const cards = this.topics.map(topic =>  topic.flashcards.map(card => {
+            // debugger 
             if (topicId == card.topic_id) {
-                return `<div class="card-list" data-cardid="${card.id}" data-topicid="${topicId}"><b>${card.name}:</b> ${card.description}<button class="delete-btn">Delete</button></div>`
+                return `<div class="card-list" data-cardid="${card.id}" data-topicid="${topicId}"><b>${card.name}:</b> ${card.description}<button class="delete-btn">Delete</button></div><br>`
             }
         }))
         this.cardsBox.innerHTML = cards.join(' ')

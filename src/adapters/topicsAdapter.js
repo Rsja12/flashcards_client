@@ -29,7 +29,7 @@ class TopicsAdapter {
         return fetch(`${this.baseURL}/${id}`, {
             method: 'PATCH',
             headers: {
-                'content-type': 'application/json',
+                'content-type': 'application/json'
             },
             body: JSON.stringify(topic)
         })
@@ -46,7 +46,7 @@ class TopicsAdapter {
         return fetch(`${this.baseURL}/${id}/flashcards`, {
             method: 'POST',
             headers: {
-                'content-type': 'application/json',
+                'content-type': 'application/json'
             },
             body: JSON.stringify({flashcard})
         })

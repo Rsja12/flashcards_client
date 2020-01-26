@@ -67,26 +67,25 @@ class Topics {
         this.topicsBox.innerHTML = this.topics.map(topic => topic.renderTopicName()).join('')
     }
 
-    // FLASHCARDS ********************************************************************************
+    // FLASHCARDS *******************************************************************************
 
     renderCards(e) {        
         const topicId = e.target.dataset.id 
         this.cardFormBox.innerHTML = this.renderCardForm(topicId)
         const cards = this.topics.map(topic =>  topic.flashcards.map(card => {
-            // debugger 
             if (topicId == card.topic_id) {
-                return `<div class="card-list" data-cardid="${card.id}" data-topicid="${topicId}"><b>${card.name}:</b> ${card.description}<button class="delete-btn">Delete</button></div><br>`
+                return `<div class="card-list" data-cardid="${card.id}" data-topicid="${topicId}"><h4>${card.name}</h4>${card.description}<br><button class="delete-btn">Delete</button></div>`
             }
         }))
-        this.cardsBox.innerHTML = cards.join(' ')
+        this.cardsBox.innerHTML = cards.join('')
         const card = document.querySelector( '.bottom' )
         card.addEventListener('click', this.handleDelete.bind(this))
     }
-    
+
     renderCardForm(topicId) {
         return `<form data-topicId="${topicId}" id="card-form">
         <input type="text" id="card-name" placeholder="Term" required>
-        <input type="text" id="card-description" placeholder="Description" required></input>
+        <textarea type="text" id="card-description" placeholder="Description" required></textarea>
         <input type="submit" value="Create">
         </form>
         `
@@ -107,9 +106,8 @@ class Topics {
     }
     
     renderNewCard(card) {
-        return this.cardsBox.innerHTML += `<div class="card-list" data-cardid="${card.id}" data-topicid="${card.topic_id}"><b>${card.name}:</b> ${card.description}<button class="delete-btn">Delete</button></div>`
+    return this.cardsBox.innerHTML += `<div class="card-list" data-cardid="${card.id}" data-topicid="${card.topic_id}"><h4>${card.name}</h4>${card.description}<br><button class="delete-btn">Delete</button></div>`
     }
-    
     
     handleDelete(e) {
         if(e.target && e.target.matches('button.delete-btn')) {
@@ -126,7 +124,7 @@ class Topics {
         e.target.parentElement.remove()
         topic.flashcards = topic.flashcards.filter((card) => card.id !== this.cardId)
     }
-    
+
 }
 
 

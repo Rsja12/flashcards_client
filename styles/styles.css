@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.parent {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 25% 75%;
+}
+
+.left {
+    background-color: antiquewhite;
+}
+
+.right {
+    background-color: aqua;
+}

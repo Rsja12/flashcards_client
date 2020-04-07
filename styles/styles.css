@@ -10,12 +10,13 @@
     display: grid;
     grid-template-columns: 20% 80%;
 }
+/* ********************************************************************************  LEFT  ********************************************************************************************* */
 
 .left {
     background-color: rgb(99, 99, 99);
 }
 
-/* TOPIC FORM */
+/* TOPIC FORM ************************************************************************************/ 
 
 #topic-form {
     padding-top: 7%;
@@ -54,6 +55,20 @@
 #topic-submit:hover {
     transform: scale(1.1);
 }
+
+
+/* SUBJECT LIST  **************************************************************************** */
+
+#topics-container {
+    text-align: center;
+}
+
+.topic-list {
+    font-family: 'Inconsolata', monospace;
+}
+
+
+
 
 .right {
     display: grid;

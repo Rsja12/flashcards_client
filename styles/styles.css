@@ -46,6 +46,15 @@
     border-radius: 5px;
 }
 
+#topic-submit {
+    width: 45%;
+    border-radius: 6px;
+}
+
+#topic-submit:hover {
+    transform: scale(1.1);
+}
+
 .right {
     display: grid;
     grid-template-rows: 20% 80%;

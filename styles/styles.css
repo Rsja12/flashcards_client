@@ -41,6 +41,11 @@
     margin-bottom: 5%;
 }
 
+#topic-name {
+    width: 60%;
+    border-radius: 5px;
+}
+
 .right {
     display: grid;
     grid-template-rows: 20% 80%;

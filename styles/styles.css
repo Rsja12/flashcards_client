@@ -16,5 +16,15 @@
 }
 
 .right {
+    display: grid;
+    grid-template-rows: 20% 80%;
     background-color: rgb(241, 241, 241);
+}
+
+.top {
+    background-color: aqua;
+}
+
+.bottom {
+    background-color: brown;
 }

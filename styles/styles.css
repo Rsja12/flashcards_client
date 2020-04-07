@@ -15,6 +15,23 @@
     background-color: rgb(99, 99, 99);
 }
 
+/* TOPIC FORM */
+
+#topic-form {
+    padding-top: 7%;
+    padding-bottom: 7%;
+}
+
+.label {
+    display: block;
+    text-align: center;
+}
+
+#topic-form input {
+    display: block;
+    margin: 0 auto;
+}
+
 .right {
     display: grid;
     grid-template-rows: 20% 80%;

@@ -8,11 +8,11 @@
 .parent {
     height: 100vh;
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 20% 80%;
 }
 
 .left {
-    background-color: antiquewhite;
+    background-color: rgb(99, 99, 99);
 }
 
 .right {

@@ -84,6 +84,7 @@ class Topics {
 
     renderCardForm(topicId) {
         return `<form data-topicId="${topicId}" id="card-form">
+        <label for="card-name" id="card-label">Create a Flashcard</label>
         <input type="text" id="card-name" placeholder="Term" required>
         <textarea type="text" id="card-description" placeholder="Description" required></textarea>
         <input type="submit" value="Create">

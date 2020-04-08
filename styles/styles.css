@@ -17,17 +17,20 @@
     display: grid;
     grid-template-rows: 20% 80%;
 }
+/* 
+.left-top {
+    position: relative;
+} */
 
 /* TOPIC FORM ************************************************************************************/ 
 
 #topic-form {
-    position: relative;
-
     font-family: 'Inconsolata', monospace;
     color:#fff;
 
-    height: 20%;
     padding-top: 3%;
+
+    position: relative;
 }
 
 .label {

@@ -94,12 +94,12 @@
 }
 
 .top {
-    background-color: aqua;
+    background-color: rgb(46, 46, 46);
     position: relative;
 }
 
 .bottom {
-    background-color: brown;
+    background-color: rgb(255, 255, 255);
 }
 
 /* RIGHT TOP ******************************************** */

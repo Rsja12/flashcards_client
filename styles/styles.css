@@ -126,12 +126,14 @@
 
 #card-name {
     display: block;
-    margin: auto;
-    margin-bottom: 1%;
 
     width: 25%;
 
     border-radius: 8px;
+
+    position: absolute;
+    left: 37.5%;
+    top: 25%;
 }
 
 #card-form textarea {

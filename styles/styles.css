@@ -13,20 +13,16 @@
 /* ********************************************************************************  LEFT  ********************************************************************************************* */
 
 .left {
-    background-color: rgb(99, 99, 99);
+    background-color: rgb(207, 207, 207);
     display: grid;
     grid-template-rows: 20% 80%;
 }
-/* 
-.left-top {
-    position: relative;
-} */
 
 /* TOPIC FORM ************************************************************************************/ 
 
 #topic-form {
     font-family: 'Inconsolata', monospace;
-    color:#fff;
+    color:rgb(0, 0, 0);
 
     padding-top: 3%;
 
@@ -42,21 +38,22 @@
     padding-bottom: 3%;
 }
 
-#topic-form input {
-    display: block;
-    margin: auto;
-    margin-bottom: 5%;
-}
-
 #topic-name {
     width: 60%;
     border-radius: 5px;
 
+    display: block;
+    margin: auto;
+
+    margin-bottom: 5%;
 }
 
 #topic-submit {
     width: 45%;
     border-radius: 6px;
+
+    display: block;
+    margin: auto;
 }
 
 #topic-submit:hover {
@@ -77,8 +74,8 @@
 
 .topic-list {
     font-family: 'Inconsolata', monospace;
-    font-size: 150%;
-    padding-top: 5%;
+    font-size: 175%;
+    padding-top: 10%;
 
 }
 

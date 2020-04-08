@@ -93,18 +93,22 @@
     background-color: rgb(241, 241, 241);
 }
 
+.top {
+    background-color: aqua;
+    position: relative;
+}
+
 .bottom {
     background-color: brown;
 }
 
 /* RIGHT TOP ******************************************** */
 
-.top {
-    background-color: aqua;
-    
-    padding-top: 3%;
+
+#card-form {
+    font-family: 'Inconsolata', monospace;
 }
 
-#card-label {
-    font-family: 'Inconsolata', monospace;
+#card-form label {
+    display: block;
 }

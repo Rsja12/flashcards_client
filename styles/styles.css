@@ -136,7 +136,6 @@
 
 #card-form textarea {
     display: block;
-    margin: auto;
 
     width: 25%;
     height: 60px;
@@ -144,6 +143,10 @@
     resize: none;
 
     border-radius: 8px;
+
+    position: absolute;
+    bottom: 23%;
+    left: 37.5%;
 }
 
 #card-form input[type="submit"] {

@@ -1,11 +1,19 @@
-#FlashCard App
+**Flashcards**
+---------
+Flashcards is a Single Page Application where users can create subjects, and afterwards create flashcards that belong to those subjects.
 
-This is a simple flashcard application where users can create categories and then create flashcards that belong to those categories.
+**Motivation**
+---------
+The motivation behind this project came from wanting to have a way to study all of the programming terminology that I was having a hard time remembering. 
 
-#Get Started
+**Tech Used**
+---------
+JavaScript
 
-This is only the frontend side of this project. The backend can be found at https://github.com/Rsja12/flashcards_api. Clone down both this repo and the backend repo down to your machine. After following the READme for the backend repo, you can open up the terminal for this repo and open up the html file by entering the command `open index.html`
+**Installation**
+---------
+This is only the frontend side of this project. The backend can be found at https://github.com/Rsja12/flashcards_api. Clone down both this repo and the backend repo down to your machine. After following the README for the backend repo, cd into `flashcards_client` and in the terminal enter `open index.html`.
 
-#License
-
+**License**
+---------
 This project is licensed under the MIT License

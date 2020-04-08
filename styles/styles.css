@@ -108,6 +108,8 @@
 #card-form {
     font-family: 'Inconsolata', monospace;
     position: relative;
+
+    height: 100%;
 }
 
 #card-form label {
@@ -125,9 +127,31 @@
 #card-name {
     display: block;
     margin: auto;
+    margin-bottom: 1%;
 
     width: 25%;
 
     border-radius: 8px;
 }
 
+#card-form textarea {
+    display: block;
+    margin: auto;
+
+    width: 25%;
+    height: 60px;
+
+    resize: none;
+
+    border-radius: 8px;
+}
+
+#card-form input[type="submit"] {
+    display: block;
+
+    width: 15%;
+
+    position: absolute;
+    bottom: 5%;
+    left: 42.5%;
+}

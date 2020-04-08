@@ -119,9 +119,15 @@
     font-size: 175%;
 
     padding-top: 1%;
+    padding-bottom: 1%;
 }
 
 #card-name {
     display: block;
     margin: auto;
+
+    width: 25%;
+
+    border-radius: 8px;
 }
+

@@ -68,6 +68,7 @@ class Topics {
         this.topicBtn = document.querySelectorAll("#topic-btn")
         this.topicBtn.forEach( button => {
             button.addEventListener('click', this.findTopic.bind(this, button), { once: true })
+            button.addEventListener('click', this.renderCardForm.bind(this, button), { once: true })
         })
     }
 

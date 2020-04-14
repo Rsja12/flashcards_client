@@ -6,19 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
     <title>Flashcards</title>
 </head>
 <body>
     <div class="parent">
         <div class="left">
-            <form id="topic-form">
-                <label for="topic-name" class="label">Make a topic</label>
-                <input type="text" id="topic-name" required>
-                <input type="submit" value="Create">
-            </form>
-            <ul id="topics-container">
-                
-            </ul> 
+                <form id="topic-form">
+                    <label for="topic-name" class="label">Create a Subject</label>
+                    <input type="text" id="topic-name" required>
+                    <input type="submit" id="topic-submit" value="Create">
+                </form>
+                <div id="topics-container">
+                    
+                </div> 
+        </form>
         </div>
         <div class="right">
             <div class="top" id="card-form-box">

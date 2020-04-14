@@ -17,7 +17,7 @@ class TopicsAdapter {
             headers: {
                 'content-type': 'application/json',
             },
-            body: JSON.stringify(topic) //Review this shit. Stringify, body:
+            body: JSON.stringify(topic) 
         })
         .then(res => res.json())
     }

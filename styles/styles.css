@@ -1,156 +1,173 @@
-/* Editable class */
-.edit {
-    border: 1px solid black;
-    padding: 20px;
-}
-
-body {
+*{
     margin: 0;
-    font-family: 'Nixie One';
+    padding: 0;
+    box-sizing: border-box;
 }
 
-h1 {
-    font-size: 40px;
-}
 
 .parent {
-    display: flex;
-    width: 100vw;
     height: 100vh;
+    display: grid;
+    grid-template-columns: 20% 80%;
 }
-
-/* LEFT ************************************************************************************************************* */
+/* ********************************************************************************  LEFT  ********************************************************************************************* */
 
 .left {
-    flex: 20;
-    background: rgb(32, 32, 32);
-    overflow: hidden;
+    background-color: rgb(207, 207, 207);
+    display: grid;
+    grid-template-rows: 25% 75%;
 }
 
-/* FORM */
+/* TOPIC FORM ************************************************************************************/ 
 
-#topic-form{
-    /* border:1px solid rgb(3, 0, 0); */
-    width:50%; 
-    margin-top: 10%;
-    margin-left: 25%;
-    text-align:center;
-}
+#topic-form {
+    font-family: 'Inconsolata', monospace;
+    color:rgb(0, 0, 0);
 
-#topic-name {
-    margin-top: 12px;
-    margin-bottom: 12px;
+    padding-top: 3%;
+
+    position: relative;
 }
 
 .label {
-    color: white;
-    font-size: 20px;
-    font-weight: 400;
+    display: block;
+
+    text-align: center;
+    font-size: 150%;
+
+    padding-bottom: 3%;
 }
 
 #topic-name {
-    width: 100%;
-    border-radius: 8px;
+    width: 60%;
+    border-radius: 5px;
+
+    display: block;
+    margin: auto;
+
+    margin-bottom: 5%;
 }
 
-/* TOPICS */
+#topic-submit {
+    width: 45%;
+    border-radius: 6px;
+
+    display: block;
+    margin: auto;
+}
+
+#topic-submit:hover {
+    transform: scale(1.1);
+}
+
+
+/* SUBJECT LIST  **************************************************************************** */
+
+#topics-container {
+    text-align: center;
+    padding-bottom: 5%;
+
+    position: relative;
+
+    overflow: scroll;
+}
 
 .topic-list {
-    color: white;
-    list-style: none;
-    font-size: 30px;
-    font-weight: 200;
-    margin-top: 25%;
-    margin-left: 15%;
-    position: relative;
-    text-decoration: none;
+    font-family: 'Inconsolata', monospace;
+    font-size: 175%;
+    padding-top: 10%;
+
 }
 
 .topic-list:hover {
-    border-bottom: 5px solid rgb(255, 255, 255);
-    transition: .5s ease, .5s ease;
+    transform: scale(1.2);
 }
 
 
+/* ******************************************************************   RIGHT   *********************************************************************************************** */
 
-/*  RIGHT SIDE******************************************************************************* */
 
 .right {
-    flex: 80;
-    flex-direction: column;
-    display: flex;
-    background-color: rgb(243, 243, 243);
+    display: grid;
+    grid-template-rows: 25% 75%;
+    background-color: rgb(241, 241, 241);
 }
 
-.right .top {
-    flex: 20;
+.top {
+    background-color: rgb(46, 46, 46);
+    position: relative;
 }
 
-.right .bottom {
-    margin: 0;
-    flex: 80;
+.bottom {
+    background-color: rgb(255, 255, 255);
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 200px);
+    grid-gap: 1rem;
 }
 
-/* CARD FORM */
+/* RIGHT TOP ******************************************** */
 
-#card-form-box {
-    text-align: center;
-}
 
 #card-form {
-    position: absolute;
-    left: 50%;
+    font-family: 'Inconsolata', monospace;
+    position: relative;
+    height: 100%;
+}
+
+#card-form label {
+    display: block;
+    text-align: center;
+
+    color: rgb(240, 239, 239);
+
+    font-size: 175%;
+
+    padding-top: 1%;
+    padding-bottom: 1%;
+
 }
 
 #card-name {
-    margin-top: 10%;
-    margin-bottom: 5%;
-    width: 100%;
-    border-radius: 8px; 
-    border: 2px solid #ccc;
+    display: block;
 
+    width: 25%;
+
+    border-radius: 8px;
+
+    position: absolute;
+    left: 37.5%;
+    top: 25%;
 }
 
-#card-description {
-    width: 100%;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
+#card-form textarea {
+    display: block;
+
+    width: 25%;
+    height: 60px;
+
     resize: none;
+
+    border-radius: 8px;
+
+    position: absolute;
+    bottom: 23%;
+    left: 37.5%;
 }
 
-/* FLASHCARDS */
+#card-form input[type="submit"] {
+    display: block;
 
-.bottom {
-    overflow: auto;
+    width: 15%;
+
+    position: absolute;
+    bottom: 5%;
+    left: 42.5%;
 }
+
+/* ********************************************* RIGHT BOTTOM */
 
 .card-list {
-    text-align: center;
-    /* position: relative; */
-    float: left;
-    overflow: auto;
-    background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    margin-left: 2.5%;
-    margin-top: 1.5%;
-    padding-top: 2%;
-    padding-left: 2%;
-    padding-right: 2%;
-    padding-bottom: 1%;
-    width: 300px;
-    height: 150px;
-}
-
-h4 {
-    text-align: center;
-    font-size: 20px;
-}
-
-.delete-btn {
-  text-align: center;
-  margin-top: 5%;
-  margin-bottom: 0px;
+    border: 2px solid #e7e7e7;
 }

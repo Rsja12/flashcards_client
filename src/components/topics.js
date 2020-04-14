@@ -115,6 +115,8 @@ class Topics {
             }
         })
         this.cardsBox.innerHTML = cards.join('')
+        const deleteBtn = document.querySelector(".bottom")
+        deleteBtn.addEventListener('click', this.handleDelete.bind(this))
     }
 
     // renderCards(e) {        

@@ -66,20 +66,23 @@ class Topics {
     renderTopics() {
         this.topicsBox.innerHTML = this.topics.map(topic => topic.renderTopicName()).join('')
         this.topicBtn = document.querySelectorAll("#topic-btn")
+        this.topicBtn.forEach( button => {
+            button.addEventListener('click', this.findTopic.bind(this, button), { once: true })
+        })
     }
 
     // FLASHCARDS *******************************************************************************
    
-    // findTopic(e) {
-    //     debugger
-    //     const topicId = e.target.dataset.id 
-    //     const topicName = e.target.textContent 
-    //     this.cardFormBox.innerHTML = this.renderCardForm(topicId, topicName)
-    //     // find the right topic so that we can pass it to a function.
-    //     // That function will return the list of cards that belong to that topic.
-    //     const topic = this.topics.find( topic => topic.id === parseInt(topicId) )
-    //     this.displayCards(topic)
-    // }
+    findTopic(e) {
+        debugger
+        const topicId = e.target.dataset.id 
+        const topicName = e.target.textContent 
+        this.cardFormBox.innerHTML = this.renderCardForm(topicId, topicName)
+        // find the right topic so that we can pass it to a function.
+        // That function will return the list of cards that belong to that topic.
+        const topic = this.topics.find( topic => topic.id === parseInt(topicId) )
+        this.displayCards(topic)
+    }
 
     // displayCards(topic) {
     //     const div = document.createElement('div')

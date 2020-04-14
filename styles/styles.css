@@ -102,9 +102,9 @@
     background-color: rgb(255, 255, 255);
 
     display: grid;
-    position: relative;
 
-    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+    grid-template-columns: repeat(3, 200px);
+    grid-gap: 1rem;
 }
 
 /* RIGHT TOP ******************************************** */
@@ -113,7 +113,6 @@
 #card-form {
     font-family: 'Inconsolata', monospace;
     position: relative;
-
     height: 100%;
 }
 
@@ -127,6 +126,7 @@
 
     padding-top: 1%;
     padding-bottom: 1%;
+
 }
 
 #card-name {
@@ -167,3 +167,7 @@
 }
 
 /* ********************************************* RIGHT BOTTOM */
+
+.card-list {
+    border: 2px solid #e7e7e7;
+}

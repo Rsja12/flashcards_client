@@ -5,8 +5,14 @@ class Topic {
         this.flashcards = topic.flashcards ? topic.flashcards : []
     }
 
+    // renderTopicName() {
+    //     return `<div id="topic-list" class="topic-list" data-id=${this.id}>${this.name}</div>`
+    // }
+
     renderTopicName() {
-        return `<div id="topic-list" class="topic-list" data-id=${this.id}>${this.name}</div>`
+        return `
+                <h4 id="topic-list" class="topic-list" data-id=${this.id}> ${this.name} </h4>
+        `
     }
 
 }

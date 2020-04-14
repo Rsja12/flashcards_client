@@ -82,31 +82,31 @@ class Topics {
         // find the right topic so that we can pass it to a function.
         // That function will return the list of cards that belong to that topic.
         const topic = this.topics.find( topic => topic.id === parseInt(topicId) )
-        this.displayCards(topic)
+        this.renderCards()
     }
 
-    displayCards(topic) {
-        const div = document.createElement('div')
-        div.innerHTML = ''
-        topic.flashcards.forEach( card => {
-            const name = document.createElement('h4')
-            const description = document.createElement('p')
-            const button = document.createElement('button')
-            button.classList.add('delete-btn')
-            button.innerHTML = 'Delete Card'
-            div.dataset.id = card.id 
-            div.dataset.topic_id = topic.id 
-            name.textContent = card.name
-            description.textContent = card.description
-            div.appendChild(name)
-            div.appendChild(description)
-            div.appendChild(button)
-        } )
-        this.cardsBox.appendChild(div)
-        const card = document.querySelector('.bottom')
-        card.addEventListener('click', this.handleDelete.bind(this))
-        // debugger
-    }
+    // displayCards(topic) {
+    //     const div = document.createElement('div')
+    //     div.innerHTML = ''
+    //     topic.flashcards.forEach( card => {
+    //         const name = document.createElement('h4')
+    //         const description = document.createElement('p')
+    //         const button = document.createElement('button')
+    //         button.classList.add('delete-btn')
+    //         button.innerHTML = 'Delete Card'
+    //         div.dataset.id = card.id 
+    //         div.dataset.topic_id = topic.id 
+    //         name.textContent = card.name
+    //         description.textContent = card.description
+    //         div.appendChild(name)
+    //         div.appendChild(description)
+    //         div.appendChild(button)
+    //     } )
+    //     this.cardsBox.appendChild(div)
+    //     const card = document.querySelector('.bottom')
+    //     card.addEventListener('click', this.handleDelete.bind(this))
+    //     // debugger
+    // }
 
     renderCards(e) {        
         const topicId = e.target.dataset.id 

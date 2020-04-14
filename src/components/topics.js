@@ -75,7 +75,6 @@ class Topics {
     // FLASHCARDS *******************************************************************************
    
     findTopic(e) {
-        // debugger
         const topicId = e.target.dataset.id 
         const topicName = e.target.textContent 
         this.cardFormBox.innerHTML = this.renderCardForm(topicId, topicName)
@@ -84,29 +83,6 @@ class Topics {
         const topic = this.topics.find( topic => topic.id === parseInt(topicId) )
         this.renderCards(topic)
     }
-
-    // displayCards(topic) {
-    //     const div = document.createElement('div')
-    //     div.innerHTML = ''
-    //     topic.flashcards.forEach( card => {
-    //         const name = document.createElement('h4')
-    //         const description = document.createElement('p')
-    //         const button = document.createElement('button')
-    //         button.classList.add('delete-btn')
-    //         button.innerHTML = 'Delete Card'
-    //         div.dataset.id = card.id 
-    //         div.dataset.topic_id = topic.id 
-    //         name.textContent = card.name
-    //         description.textContent = card.description
-    //         div.appendChild(name)
-    //         div.appendChild(description)
-    //         div.appendChild(button)
-    //     } )
-    //     this.cardsBox.appendChild(div)
-    //     const card = document.querySelector('.bottom')
-    //     card.addEventListener('click', this.handleDelete.bind(this))
-    //     // debugger
-    // }
 
     renderCards(topic) {
         const cards = topic.flashcards.map( card => {
@@ -118,20 +94,6 @@ class Topics {
         const deleteBtn = document.querySelector(".bottom")
         deleteBtn.addEventListener('click', this.handleDelete.bind(this))
     }
-
-    // renderCards(e) {        
-    //     debugger
-    //     const topicId = e.target.dataset.id 
-    //     this.cardFormBox.innerHTML = this.renderCardForm(topicId)
-    //     const cards = this.topics.map(topic => topic.flashcards.map(card => {
-    //         if (topicId == card.topic_id) {
-    //             return `<div class="card-list" data-cardid="${card.id}" data-topicid="${topicId}"><h4>${card.name}</h4>${card.description}<br><button class="delete-btn">Delete</button></div>`
-    //         }
-    //     }))
-    //     this.cardsBox.innerHTML = cards.join('')
-    //     const card = document.querySelector( '.bottom' )
-    //     card.addEventListener('click', this.handleDelete.bind(this))
-    // }
 
     renderCardForm(topicId, topicName) {
         return `<form data-topicId="${topicId}" id="card-form">

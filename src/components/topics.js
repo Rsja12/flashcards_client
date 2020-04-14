@@ -67,7 +67,7 @@ class Topics {
         this.topicsBox.innerHTML = this.topics.map(topic => topic.renderTopicName()).join('')
         this.topicName = document.querySelectorAll("#topic-list")
         this.topicName.forEach( name => {
-            name.addEventListener('click', this.findTopic.bind(this), { once: true })
+            name.addEventListener('click', this.findTopic.bind(this))
             // button.addEventListener('click', this.renderCardForm.bind(this, button), { once: true })
         })
     }
@@ -75,14 +75,14 @@ class Topics {
     // FLASHCARDS *******************************************************************************
    
     findTopic(e) {
-        debugger
+        // debugger
         const topicId = e.target.dataset.id 
         const topicName = e.target.textContent 
         this.cardFormBox.innerHTML = this.renderCardForm(topicId, topicName)
         // find the right topic so that we can pass it to a function.
         // That function will return the list of cards that belong to that topic.
         const topic = this.topics.find( topic => topic.id === parseInt(topicId) )
-        this.renderCards()
+        this.renderCards(topic)
     }
 
     // displayCards(topic) {
@@ -108,22 +108,32 @@ class Topics {
     //     // debugger
     // }
 
-    renderCards(e) {        
-        const topicId = e.target.dataset.id 
-        this.cardFormBox.innerHTML = this.renderCardForm(topicId)
-        const cards = this.topics.map(topic => topic.flashcards.map(card => {
-            if (topicId == card.topic_id) {
-                return `<div class="card-list" data-cardid="${card.id}" data-topicid="${topicId}"><h4>${card.name}</h4>${card.description}<br><button class="delete-btn">Delete</button></div>`
+    renderCards(topic) {
+        const cards = topic.flashcards.map( card => {
+            if ( topic.id === card.topic_id ) {
+                return `<div class="card-list" data-cardid="${card.id}" data-topicid="${card.topic_id}"><h4>${card.name}</h4>${card.description}<br><button class="delete-btn">Delete</button></div>`
             }
-        }))
+        })
         this.cardsBox.innerHTML = cards.join('')
-        const card = document.querySelector( '.bottom' )
-        card.addEventListener('click', this.handleDelete.bind(this))
     }
 
-    renderCardForm(topicId) {
+    // renderCards(e) {        
+    //     debugger
+    //     const topicId = e.target.dataset.id 
+    //     this.cardFormBox.innerHTML = this.renderCardForm(topicId)
+    //     const cards = this.topics.map(topic => topic.flashcards.map(card => {
+    //         if (topicId == card.topic_id) {
+    //             return `<div class="card-list" data-cardid="${card.id}" data-topicid="${topicId}"><h4>${card.name}</h4>${card.description}<br><button class="delete-btn">Delete</button></div>`
+    //         }
+    //     }))
+    //     this.cardsBox.innerHTML = cards.join('')
+    //     const card = document.querySelector( '.bottom' )
+    //     card.addEventListener('click', this.handleDelete.bind(this))
+    // }
+
+    renderCardForm(topicId, topicName) {
         return `<form data-topicId="${topicId}" id="card-form">
-        <label for="card-name" id="card-label">Create a Flashcard</label>
+        <label for="card-name" id="card-label">Create a Flashcard for ${topicName}</label>
         <input type="text" id="card-name" placeholder="Name your flashcard" required>
         <textarea type="text" id="card-description" placeholder="Description" required></textarea>
         <input type="submit" value="Create">

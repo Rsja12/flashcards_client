@@ -103,8 +103,13 @@
 
     display: grid;
 
-    grid-template-columns: repeat(3, 200px);
-    grid-gap: 1rem;
+    padding: 2%;
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 2rem;
+
+    overflow: scroll;
 }
 
 /* RIGHT TOP ******************************************** */

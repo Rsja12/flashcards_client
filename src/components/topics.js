@@ -33,8 +33,8 @@ class Topics {
         this.cardFormBox.addEventListener('submit', this.createCard.bind(this))
     }
 
-    // TOPICS *********************************************************************
-
+    //  TOPICS *********************************************************************
+    
     createTopic(e) {
         e.preventDefault()
         const name = this.topicNameField.value

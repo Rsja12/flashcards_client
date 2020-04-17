@@ -45,7 +45,8 @@
     display: block;
     margin: auto;
 
-    margin-bottom: 5%;
+    margin-bottom: 10%;
+    padding: 1%;
 }
 
 #topic-submit {
@@ -54,10 +55,13 @@
 
     display: block;
     margin: auto;
+
+    padding: 1%;
 }
 
 #topic-submit:hover {
     transform: scale(1.1);
+    background-color: rgb(64, 224, 144);
 }
 
 
@@ -179,11 +183,7 @@
 /* ********************************************* RIGHT BOTTOM */
 
 .card-list {
-    /* border: 2px solid #e7e7e7;
-    height: 90%; */
-    /* text-align: center; */
     display: inline-block;
-    /* float: left; */
     overflow: auto;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);

@@ -99,20 +99,22 @@
 }
 
 .bottom {
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(255, 255, 255);
 
     display: grid;
     height: 100%;
     overflow: scroll;
 
-    padding: 2%;
+    padding: 2%; */
 
     /* grid-template-columns: 1fr 1fr 1fr; */
     /* grid-template-columns: 30% 30% 30%; */
-    grid-template-columns: repeat(auto-fill, minmax(30%, 30%));
+    /* grid-template-columns: repeat(auto-fill, minmax(30%, 30%)); */
     /* grid-template-rows: 1fr 1fr; */
-    grid-template-rows: 50% 50%;
-    grid-gap: 2rem;
+    /* grid-template-rows: repeat(auto-fill, minmax(50%, 1fr)); */
+    /* grid-gap: 2rem; */
+    overflow: auto;
+    text-align: center;
 }
 
 /* RIGHT TOP ******************************************** */
@@ -177,5 +179,21 @@
 /* ********************************************* RIGHT BOTTOM */
 
 .card-list {
-    border: 2px solid #e7e7e7;
+    /* border: 2px solid #e7e7e7;
+    height: 90%; */
+    /* text-align: center; */
+    display: inline-block;
+    /* float: left; */
+    overflow: auto;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin-left: 2%;
+    margin-top: 1.5%;
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 1%;
+    width: 400px;
+    height: 175px;
 }
+

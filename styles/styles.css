@@ -187,4 +187,11 @@
     position: absolute;
     bottom: 0px;
     right: 2px;
+    padding: 4px;
+
+    background-color: rgb(230, 34, 0);
+    color: rgb(255, 249, 249);
+
+    border-radius: 3px;
 }
+

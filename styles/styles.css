@@ -168,6 +168,7 @@
 /* ********************************************* RIGHT BOTTOM */
 
 .card-list {
+    position: relative;
     display: inline-block;
     overflow: auto;
     background-color: white;
@@ -182,3 +183,8 @@
     height: 175px;
 }
 
+.delete-btn {
+    position: absolute;
+    bottom: 0px;
+    right: 2px;
+}

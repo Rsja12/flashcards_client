@@ -108,14 +108,14 @@ class Topics {
         `
     }
     
-    createCard = (e) => {
+    createCard = e => {
         e.preventDefault()
         this.topicId = parseInt(e.target.dataset.topicid)
         const name = document.getElementById( 'card-name' ).value
         const description = document.getElementById( 'card-description' ).value
         this.adapter.createFlashCard(name, description, this.topicId)
         .then(card => {
-            this.topics.find((topic) => topic.id === this.topicId).flashcards.push(card)
+            this.topics.find( topic => topic.id === this.topicId).flashcards.push(card)
             this.renderNewCard(card)
         })
         document.getElementById( 'card-name' ).value = ''

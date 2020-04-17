@@ -102,14 +102,17 @@
     background-color: rgb(255, 255, 255);
 
     display: grid;
+    height: 100%;
+    overflow: scroll;
 
     padding: 2%;
 
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    /* grid-template-columns: 30% 30% 30%; */
+    grid-template-columns: repeat(auto-fill, minmax(30%, 30%));
+    /* grid-template-rows: 1fr 1fr; */
+    grid-template-rows: 50% 50%;
     grid-gap: 2rem;
-
-    
 }
 
 /* RIGHT TOP ******************************************** */

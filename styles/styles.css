@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    font-family: 'Manrope', sans-serif;
 }
 
 
@@ -21,7 +23,6 @@
 /* TOPIC FORM ************************************************************************************/ 
 
 #topic-form {
-    font-family: 'Manrope', sans-serif;
     color:rgb(0, 0, 0);
 
     padding-top: 3%;
@@ -77,7 +78,6 @@
 }
 
 .topic-list {
-    font-family: 'Inconsolata', monospace;
     font-size: 175%;
     padding-top: 15%;
 
@@ -103,20 +103,6 @@
 }
 
 .bottom {
-    /* background-color: rgb(255, 255, 255);
-
-    display: grid;
-    height: 100%;
-    overflow: scroll;
-
-    padding: 2%; */
-
-    /* grid-template-columns: 1fr 1fr 1fr; */
-    /* grid-template-columns: 30% 30% 30%; */
-    /* grid-template-columns: repeat(auto-fill, minmax(30%, 30%)); */
-    /* grid-template-rows: 1fr 1fr; */
-    /* grid-template-rows: repeat(auto-fill, minmax(50%, 1fr)); */
-    /* grid-gap: 2rem; */
     overflow: auto;
     text-align: center;
 }
@@ -125,7 +111,6 @@
 
 
 #card-form {
-    font-family: 'Inconsolata', monospace;
     position: relative;
     height: 100%;
 }

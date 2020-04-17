@@ -160,6 +160,14 @@
     position: absolute;
     bottom: 5%;
     left: 42.5%;
+
+    border-radius: 6px;
+}
+
+#card-form input[type="submit"]:hover {
+    background-color: rgb(64, 224, 144);
+
+    border-radius: 6px;
 }
 
 /* ********************************************* RIGHT BOTTOM */

@@ -10,11 +10,9 @@ class Topics {
     fetchAndLoadTopics() {
         this.adapter.getTopics()
         .then(topics => {
-            topics.forEach(topic => this.topics.push(new Topic(topic)))
+            topics.forEach(topic => this.topics.push(new Topic (topic) ))
         })
-        .then( () => {
-            this.renderTopics()
-        })
+        .then( () => this.renderTopics() )
     }
 
     domElements() {
@@ -87,7 +85,12 @@ class Topics {
     renderCards(topic) {
         const cards = topic.flashcards.map( card => {
             if ( topic.id === card.topic_id ) {
-                return `<div class="card-list" data-cardid="${card.id}" data-topicid="${card.topic_id}"><h4>${card.name}</h4>${card.description}<br><button class="delete-btn">Delete</button></div>`
+                return `<div class="card-list" 
+                        data-cardid="${card.id}" 
+                        data-topicid="${card.topic_id}">
+                        <h4>${card.name}</h4>${card.description}<br>
+                        <button class="delete-btn">Delete</button>
+                        </div>`
             }
         })
         this.cardsBox.innerHTML = cards.join('')
@@ -120,7 +123,13 @@ class Topics {
     }
     
     renderNewCard(card) {
-        return this.cardsBox.innerHTML += `<div class="card-list" data-cardid="${card.id}" data-topicid="${card.topic_id}"><h4>${card.name}</h4>${card.description}<br><button class="delete-btn">Delete</button></div>`
+        return this.cardsBox.innerHTML += 
+            `<div class="card-list"
+            data-cardid="${card.id}"
+            data-topicid="${card.topic_id}">
+            <h4>${card.name}</h4>${card.description}<br>
+            <button class="delete-btn">Delete</button>
+            </div>`
     }
     
     handleDelete(e) {

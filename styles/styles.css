@@ -21,7 +21,7 @@
 /* TOPIC FORM ************************************************************************************/ 
 
 #topic-form {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Manrope', sans-serif;
     color:rgb(0, 0, 0);
 
     padding-top: 3%;
@@ -79,7 +79,7 @@
 .topic-list {
     font-family: 'Inconsolata', monospace;
     font-size: 175%;
-    padding-top: 10%;
+    padding-top: 15%;
 
 }
 

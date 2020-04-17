@@ -115,17 +115,13 @@
     height: 100%;
 }
 
-#card-form label {
+#card-label {
     display: block;
     text-align: center;
 
-    color: rgb(240, 239, 239);
+    color: white;
 
     font-size: 175%;
-
-    padding-top: 1%;
-    padding-bottom: 1%;
-
 }
 
 #card-name {

@@ -88,7 +88,7 @@ class Topics {
                 return `<div class="card-list" 
                         data-cardid="${card.id}" 
                         data-topicid="${card.topic_id}">
-                        <h4 class="flashcard-name">${card.name}</h4><p>${card.description}</p><br>
+                        <h4 class="flashcard-name">${card.name}</h4><p class="flashcard-description">${card.description}</p><br>
                         <button class="delete-btn">Delete</button>
                         </div>
                         `
@@ -128,7 +128,7 @@ class Topics {
             `<div class="card-list"
             data-cardid="${card.id}"
             data-topicid="${card.topic_id}">
-            <h4 class="flashcard-name">${card.name}</h4><p>${card.description}</p><br>
+            <h4 class="flashcard-name">${card.name}</h4><p class="flashcard-description">${card.description}</p><br>
             <button class="delete-btn">Delete</button>
             </div>`
     }

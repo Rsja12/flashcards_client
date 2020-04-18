@@ -90,7 +90,8 @@ class Topics {
                         data-topicid="${card.topic_id}">
                         <h4>${card.name}</h4>${card.description}<br>
                         <button class="delete-btn">Delete</button>
-                        </div>`
+                        </div>
+                        `
             }
         })
         this.cardsBox.innerHTML = cards.join('')

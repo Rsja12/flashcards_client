@@ -149,6 +149,12 @@ class Topics {
         topic.flashcards = topic.flashcards.filter((card) => card.id !== this.cardId)
     }
 
+    // toggleDescription(e) {
+    //     if ( e.target.classList === 'card-list' ) {
+    //         console.log('test')
+    //     }
+    // }
+
 }
 
 

@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    font-family: 'Manrope', sans-serif;
 }
 
 
@@ -21,7 +23,6 @@
 /* TOPIC FORM ************************************************************************************/ 
 
 #topic-form {
-    font-family: 'Inconsolata', monospace;
     color:rgb(0, 0, 0);
 
     padding-top: 3%;
@@ -45,7 +46,8 @@
     display: block;
     margin: auto;
 
-    margin-bottom: 5%;
+    margin-bottom: 10%;
+    padding: 1%;
 }
 
 #topic-submit {
@@ -54,10 +56,13 @@
 
     display: block;
     margin: auto;
+
+    padding: 1%;
 }
 
 #topic-submit:hover {
     transform: scale(1.1);
+    background-color: rgb(64, 224, 144);
 }
 
 
@@ -73,9 +78,8 @@
 }
 
 .topic-list {
-    font-family: 'Inconsolata', monospace;
     font-size: 175%;
-    padding-top: 10%;
+    padding-top: 15%;
 
 }
 
@@ -99,40 +103,32 @@
 }
 
 .bottom {
-    background-color: rgb(255, 255, 255);
-
-    display: grid;
-
-    grid-template-columns: repeat(3, 200px);
-    grid-gap: 1rem;
+    overflow: auto;
+    text-align: center;
 }
 
 /* RIGHT TOP ******************************************** */
 
 
 #card-form {
-    font-family: 'Inconsolata', monospace;
     position: relative;
     height: 100%;
 }
 
-#card-form label {
+#card-label {
     display: block;
     text-align: center;
 
-    color: rgb(240, 239, 239);
+    color: white;
 
     font-size: 175%;
-
-    padding-top: 1%;
-    padding-bottom: 1%;
-
 }
 
 #card-name {
     display: block;
 
     width: 25%;
+    padding: 0.5%;
 
     border-radius: 8px;
 
@@ -164,10 +160,57 @@
     position: absolute;
     bottom: 5%;
     left: 42.5%;
+
+    border-radius: 6px;
+}
+
+#card-form input[type="submit"]:hover {
+    background-color: rgb(64, 224, 144);
+    transform: scale(1.1);
+    border-radius: 6px;
 }
 
 /* ********************************************* RIGHT BOTTOM */
 
 .card-list {
-    border: 2px solid #e7e7e7;
+    position: relative;
+    display: inline-block;
+    overflow: auto;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin-left: 2%;
+    margin-top: 1.5%;
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 1%;
+    width: 400px;
+    height: 175px;
 }
+
+.card-list:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.delete-btn {
+    position: absolute;
+    bottom: 0px;
+    right: 2px;
+    padding: 4px;
+
+    background-color: rgb(230, 34, 0);
+    color: rgb(255, 249, 249);
+
+    border-radius: 3px;
+}
+
+.flashcard-name {
+    font-size: 150%;
+    text-decoration: underline;
+    margin-bottom: 1%;
+}
+
+/* .flashcard-description {
+    display: none;
+} */

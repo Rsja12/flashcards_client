@@ -10,11 +10,9 @@ class Topics {
     fetchAndLoadTopics() {
         this.adapter.getTopics()
         .then(topics => {
-            topics.forEach(topic => this.topics.push(new Topic(topic)))
+            topics.forEach(topic => this.topics.push(new Topic (topic) ))
         })
-        .then( () => {
-            this.renderTopics()
-        })
+        .then( () => this.renderTopics() )
     }
 
     domElements() {
@@ -32,8 +30,8 @@ class Topics {
         this.cardFormBox.addEventListener('submit', this.createCard.bind(this))
     }
 
-    // TOPICS *********************************************************************
-
+    //  TOPICS *********************************************************************
+    
     createTopic(e) {
         e.preventDefault()
         const name = this.topicNameField.value
@@ -85,7 +83,13 @@ class Topics {
     renderCards(topic) {
         const cards = topic.flashcards.map( card => {
             if ( topic.id === card.topic_id ) {
-                return `<div class="card-list" data-cardid="${card.id}" data-topicid="${card.topic_id}"><h4>${card.name}</h4>${card.description}<br><button class="delete-btn">Delete</button></div>`
+                return `<div class="card-list" 
+                        data-cardid="${card.id}" 
+                        data-topicid="${card.topic_id}">
+                        <h4 class="flashcard-name">${card.name}</h4><p class="flashcard-description">${card.description}</p><br>
+                        <button class="delete-btn">Delete</button>
+                        </div>
+                        `
             }
         })
         this.cardsBox.innerHTML = cards.join('')
@@ -103,14 +107,14 @@ class Topics {
         `
     }
     
-    createCard = (e) => {
+    createCard = e => {
         e.preventDefault()
         this.topicId = parseInt(e.target.dataset.topicid)
         const name = document.getElementById( 'card-name' ).value
         const description = document.getElementById( 'card-description' ).value
         this.adapter.createFlashCard(name, description, this.topicId)
         .then(card => {
-            this.topics.find((topic) => topic.id === this.topicId).flashcards.push(card)
+            this.topics.find( topic => topic.id === this.topicId).flashcards.push(card)
             this.renderNewCard(card)
         })
         document.getElementById( 'card-name' ).value = ''
@@ -118,7 +122,13 @@ class Topics {
     }
     
     renderNewCard(card) {
-        return this.cardsBox.innerHTML += `<div class="card-list" data-cardid="${card.id}" data-topicid="${card.topic_id}"><h4>${card.name}</h4>${card.description}<br><button class="delete-btn">Delete</button></div>`
+        return this.cardsBox.innerHTML += 
+            `<div class="card-list"
+            data-cardid="${card.id}"
+            data-topicid="${card.topic_id}">
+            <h4 class="flashcard-name">${card.name}</h4><p class="flashcard-description">${card.description}</p><br>
+            <button class="delete-btn">Delete</button>
+            </div>`
     }
     
     handleDelete(e) {
@@ -136,6 +146,12 @@ class Topics {
         e.target.parentElement.remove()
         topic.flashcards = topic.flashcards.filter((card) => card.id !== this.cardId)
     }
+
+    // toggleDescription(e) {
+    //     if ( e.target.classList === 'card-list' ) {
+    //         console.log('test')
+    //     }
+    // }
 
 }
 

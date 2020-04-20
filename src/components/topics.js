@@ -22,12 +22,13 @@ class Topics {
         this.cardFormBox = document.getElementById( 'card-form-box' )
         this.cardsBox = document.querySelector( '.bottom' )
     }
-
+    
     initListeners() {
         this.topicForm.addEventListener('submit', this.createTopic.bind(this))
         this.topicsBox.addEventListener('dblclick', this.editTopic.bind(this))
         this.topicsBox.addEventListener('blur', this.updateTopic.bind(this), true) // look into `true`
         this.cardFormBox.addEventListener('submit', this.createCard.bind(this))
+        // this.cardsBox.addEventListener('click', this.handleCardClick.bind(this))
     }
 
     //  TOPICS *********************************************************************
@@ -147,12 +148,20 @@ class Topics {
         topic.flashcards = topic.flashcards.filter((card) => card.id !== this.cardId)
     }
 
-    // toggleDescription(e) {
-    //     if ( e.target.classList === 'card-list' ) {
-    //         console.log('test')
-    //     }
+    // Figure out how to toggle description of click (event bubbling ????)
+
+    // handleCardClick() {
+    //     this.card = document.querySelectorAll( '.card-list' )
+    //     this.card.forEach( card => {
+    //         card.addEventListener( 'click', this.toggle.bind(this) )
+    //     } )
+    //     // if (e.target && e.target.matches( '.flashcard-description' )) alert('hello')
     // }
 
+    // toggle(e) {
+    //     debugger
+    //     console.log(e.taget)
+    // }
 }
 
 
@@ -252,4 +261,4 @@ class Topics {
 //     const id = e.target.dataset.cardid
 //     debugger
 //     this.adapter.updateFlashCard(name, description, topicId, id)
-// }
+// }s

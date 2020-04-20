@@ -164,7 +164,8 @@ class Topics {
     }
 
     toggle(e) {
-        
+        const desc = e.target.parentElement.children[2]
+        desc.style.display = desc.style.display === 'none' ? 'block' : 'none'
     }
 }
 

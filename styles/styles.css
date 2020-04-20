@@ -212,11 +212,16 @@
 }
 
 /* Figure out toggle description on card click */
-
-/* .flashcard-description {
+/* 
+.flashcard-description {
     display: none;
 } */
+
 /* 
 .flip {
     display: block;
+} */
+
+/* .card-background {
+    background-color: red;
 } */

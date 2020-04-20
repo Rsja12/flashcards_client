@@ -28,7 +28,7 @@ class Topics {
         this.topicsBox.addEventListener('dblclick', this.editTopic.bind(this))
         this.topicsBox.addEventListener('blur', this.updateTopic.bind(this), true) // look into `true`
         this.cardFormBox.addEventListener('submit', this.createCard.bind(this))
-        this.cardsBox.addEventListener('click', this.handleAnswer.bind(this))
+        this.cardsBox.addEventListener('click', this.handleAnswerBtn.bind(this))
     }
 
     //  TOPICS *********************************************************************
@@ -152,17 +152,17 @@ class Topics {
         topic.flashcards = topic.flashcards.filter( card => card.id !== this.cardId)
     }
 
-    handleAnswer(e) {
+    handleAnswerBtn(e) {
         if(e.target && e.target.matches('button.show-btn')) {
-            this.toggle(e)
+            this.toggleDescription(e)
             e.stopPropagation()
         }
     }
 
-    toggle(e) {
+    toggleDescription(e) {
         const desc = e.target.parentElement.children[2]
         // desc.style.display = desc.style.display === 'none' ? 'block' : 'none'
-        
+
         // Work around so that click event works first time
         if ( desc.style.display == 'none' || desc.style.display == '' ) {
             desc.style.display = 'block'

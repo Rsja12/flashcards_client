@@ -161,7 +161,14 @@ class Topics {
 
     toggle(e) {
         const desc = e.target.parentElement.children[2]
-        desc.style.display = desc.style.display === 'none' ? 'block' : 'none'
+        // desc.style.display = desc.style.display === 'none' ? 'block' : 'none'
+        
+        // Work around so that click event works first time
+        if ( desc.style.display == 'none' || desc.style.display == '' ) {
+            desc.style.display = 'block'
+        } else {
+            desc.style.display = 'none'
+        }
     }
 }
 

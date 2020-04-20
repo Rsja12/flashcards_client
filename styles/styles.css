@@ -205,23 +205,24 @@
     border-radius: 3px;
 }
 
+.show-btn {
+    position: absolute;
+    top: 0px;
+    left: 2px;
+    padding: 4px;
+
+    background-color: rgb(9, 89, 209);
+    color: rgb(255, 249, 249);
+
+    border-radius: 3px;
+}
+
 .flashcard-name {
     font-size: 150%;
     text-decoration: underline;
     margin-bottom: 1%;
 }
 
-/* Figure out toggle description on card click */
-/* 
 .flashcard-description {
     display: none;
-} */
-
-/* 
-.flip {
-    display: block;
-} */
-
-/* .card-background {
-    background-color: red;
-} */
+}

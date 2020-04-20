@@ -29,7 +29,7 @@ class Topics {
         this.topicsBox.addEventListener('blur', this.updateTopic.bind(this), true) // look into `true`
         // this.topicsBox.addEventListener('click', this.renderCards.bind(this))
         this.cardFormBox.addEventListener('submit', this.createCard.bind(this))
-        this.cardsBox.addEventListener('click', this.handleCardClick.bind(this))
+        this.cardsBox.addEventListener('click', this.handleAnswer.bind(this))
     }
 
     //  TOPICS *********************************************************************
@@ -86,10 +86,12 @@ class Topics {
     renderCards(topic) {
         const cards = topic.flashcards.map( card => {
             if ( topic.id === card.topic_id ) {
-                return `<div class="card-list" 
+                return `<div class="card-list"
                         data-cardid="${card.id}" 
                         data-topicid="${card.topic_id}">
-                        <h4 class="flashcard-name">${card.name}</h4><p class="flashcard-description">${card.description}</p>
+                        <button class="show-btn">Answer</button>
+                        <h4 class="flashcard-name">${card.name}</h4>
+                        <p class="flashcard-description">${card.description}</p>
                         <button class="delete-btn">Delete</button>
                         </div>
                         `
@@ -126,9 +128,10 @@ class Topics {
     
     renderNewCard(card) {
         return this.cardsBox.innerHTML += 
-            `<div class="card-list"
+            `<div class="card-list" 
             data-cardid="${card.id}"
             data-topicid="${card.topic_id}">
+            <button class="show-btn">Answer</button>
             <h4 class="flashcard-name">${card.name}</h4>
             <p class="flashcard-description">${card.description}</p>
             <button class="delete-btn">Delete</button>
@@ -153,18 +156,15 @@ class Topics {
 
     // Figure out how to toggle description of click (event bubbling ????)
 
-    handleCardClick(e) {
-        this.card = document.querySelectorAll( '.card-list' )
-        this.card.forEach( card => {
-            card.addEventListener( 'click', this.toggle.bind(this) )
-        } )
+    handleAnswer(e) {
+        if(e.target && e.target.matches('button.show-btn')) {
+            this.toggle(e)
+            e.stopPropagation()
+        }
     }
 
     toggle(e) {
-        // console.log('test')
-        const desc = document.querySelectorAll( '.flashcard-description' )
-        console.log(e.target)
-        e.stopPropagation()
+        
     }
 }
 

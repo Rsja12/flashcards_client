@@ -188,11 +188,6 @@
     height: 175px;
 }
 
-.card-list:hover {
-    transform: scale(1.05);
-    cursor: pointer;
-}
-
 .delete-btn {
     position: absolute;
     bottom: 0px;
@@ -205,6 +200,11 @@
     border-radius: 3px;
 }
 
+.delete-btn:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
 .show-btn {
     position: absolute;
     top: 0px;
@@ -215,6 +215,11 @@
     color: rgb(255, 249, 249);
 
     border-radius: 3px;
+}
+
+.show-btn:hover {
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 .flashcard-name {

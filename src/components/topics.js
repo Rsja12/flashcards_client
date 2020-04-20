@@ -152,8 +152,6 @@ class Topics {
         topic.flashcards = topic.flashcards.filter( card => card.id !== this.cardId)
     }
 
-    // Figure out how to toggle description of click (event bubbling ????)
-
     handleAnswer(e) {
         if(e.target && e.target.matches('button.show-btn')) {
             this.toggle(e)

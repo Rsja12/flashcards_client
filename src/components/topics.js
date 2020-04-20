@@ -28,7 +28,7 @@ class Topics {
         this.topicsBox.addEventListener('dblclick', this.editTopic.bind(this))
         this.topicsBox.addEventListener('blur', this.updateTopic.bind(this), true) // look into `true`
         this.cardFormBox.addEventListener('submit', this.createCard.bind(this))
-        // this.cardsBox.addEventListener('click', this.handleCardClick.bind(this))
+        this.cardsBox.addEventListener('click', this.handleAnswer.bind(this))
     }
 
     //  TOPICS *********************************************************************
@@ -84,10 +84,12 @@ class Topics {
     renderCards(topic) {
         const cards = topic.flashcards.map( card => {
             if ( topic.id === card.topic_id ) {
-                return `<div class="card-list" 
+                return `<div class="card-list"
                         data-cardid="${card.id}" 
                         data-topicid="${card.topic_id}">
-                        <h4 class="flashcard-name">${card.name}</h4><p class="flashcard-description">${card.description}</p><br>
+                        <button class="show-btn">Answer</button>
+                        <h4 class="flashcard-name">${card.name}</h4>
+                        <p class="flashcard-description">${card.description}</p>
                         <button class="delete-btn">Delete</button>
                         </div>
                         `
@@ -124,10 +126,12 @@ class Topics {
     
     renderNewCard(card) {
         return this.cardsBox.innerHTML += 
-            `<div class="card-list"
+            `<div class="card-list" 
             data-cardid="${card.id}"
             data-topicid="${card.topic_id}">
-            <h4 class="flashcard-name">${card.name}</h4><p class="flashcard-description">${card.description}</p><br>
+            <button class="show-btn">Answer</button>
+            <h4 class="flashcard-name">${card.name}</h4>
+            <p class="flashcard-description">${card.description}</p>
             <button class="delete-btn">Delete</button>
             </div>`
     }
@@ -145,23 +149,22 @@ class Topics {
         const topicId = parseInt(e.target.parentElement.dataset.topicid)
         const topic = this.topics.find((topic) => topic.id === topicId)
         e.target.parentElement.remove()
-        topic.flashcards = topic.flashcards.filter((card) => card.id !== this.cardId)
+        topic.flashcards = topic.flashcards.filter( card => card.id !== this.cardId)
     }
 
     // Figure out how to toggle description of click (event bubbling ????)
 
-    // handleCardClick() {
-    //     this.card = document.querySelectorAll( '.card-list' )
-    //     this.card.forEach( card => {
-    //         card.addEventListener( 'click', this.toggle.bind(this) )
-    //     } )
-    //     // if (e.target && e.target.matches( '.flashcard-description' )) alert('hello')
-    // }
+    handleAnswer(e) {
+        if(e.target && e.target.matches('button.show-btn')) {
+            this.toggle(e)
+            e.stopPropagation()
+        }
+    }
 
-    // toggle(e) {
-    //     debugger
-    //     console.log(e.taget)
-    // }
+    toggle(e) {
+        const desc = e.target.parentElement.children[2]
+        desc.style.display = desc.style.display === 'none' ? 'block' : 'none'
+    }
 }
 
 

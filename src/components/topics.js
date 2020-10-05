@@ -63,8 +63,8 @@ class Topics {
 
     renderTopics() {
         this.topicsBox.innerHTML = this.topics.map(topic => topic.renderTopicName()).join('')
-        this.topicName = document.querySelectorAll("#topic-list")
-        this.topicName.forEach( name => {
+        this.topicNames = document.querySelectorAll("#topic-list")
+        this.topicNames.forEach( name => {
             name.addEventListener('click', this.findTopic.bind(this))
         })
     }

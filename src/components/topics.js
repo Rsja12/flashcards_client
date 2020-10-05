@@ -26,7 +26,7 @@ class Topics {
     initListeners() {
         this.topicForm.addEventListener('submit', this.createTopic.bind(this))
         this.topicsBox.addEventListener('dblclick', this.editTopic.bind(this))
-        this.topicsBox.addEventListener('blur', this.updateTopic.bind(this), true) // look into `true`
+        this.topicsBox.addEventListener('blur', this.updateTopic.bind(this), true) 
         this.cardFormBox.addEventListener('submit', this.createCard.bind(this))
         this.cardsBox.addEventListener('click', this.handleAnswerBtn.bind(this))
     }
@@ -161,9 +161,7 @@ class Topics {
 
     toggleDescription(e) {
         const desc = e.target.parentElement.children[2]
-        // desc.style.display = desc.style.display === 'none' ? 'block' : 'none'
-
-        // Work around so that click event works first time
+        
         if ( desc.style.display == 'none' || desc.style.display == '' ) {
             desc.style.display = 'block'
         } else {
